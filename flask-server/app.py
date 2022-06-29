@@ -3,16 +3,16 @@ import os
 from pickle import TRUE
 from urllib import response
 import pyrebase
-from flask import Flask, redirect, render_template, url_for, request, session, jsonify , Response
+from flask import Flask, redirect, render_template, url_for, request, session, jsonify , Response,send_file
 from flask_cors import CORS
-from flask_bcrypt import Bcrypt
+#from flask_bcrypt import Bcrypt
 from sys import exit as sys_exit
 import requests
-
+from google.cloud.firestore_v1 import Increment
+import firebase_admin
+from firebase_admin import firestore
+from firebase_admin import credentials
 #from requests import request, session
-
-
-
 
 config={
     'apiKey': "AIzaSyAMhO6obi2vNuSAdwMl73o9AOFcdkFDR7Y",
@@ -23,16 +23,19 @@ config={
     'appId': "1:871167837901:web:e731a23bf699677f888b84",
     'databaseURL':""
 }
-
+#firebase 應用程式連線
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
-
+#firebase DB 連線
+if not firebase_admin._apps:
+    cred = credentials.Certificate("../firebase/privatekey.json")
+    firebase_admin.initialize_app(cred)
+db = firestore.client()
 
 app = Flask(__name__)
 
-
 cors = CORS(app)
-bcrypt = Bcrypt(app)
+#bcrypt = Bcrypt(app)
 
 app.secret_key = 'secret'
 
@@ -60,13 +63,19 @@ def register_user():
         data = request.get_json()
         email = data.get('email')
         password = data.get('password')
-
+        name = data.get('name')
         resp = Response("")
         
         
         #hashed_password = bcrypt.generate_password_hash(password)
         try:
+            doc = {
+                'name': name,
+                'password':password
+            }
             auth.create_user_with_email_and_password(email,password)
+            doc_add = db.collection("members").document(email)
+            doc_add.set(doc)
         except requests.exceptions.HTTPError as err :
             print(err)
             
@@ -113,17 +122,17 @@ def forget_pswd():
     return resp
 
 
-@app.route("/logout", methods = ['GET'])
+"""@app.route("/logout", methods = ['GET'])
 def logout():
 
-    return
+    return"""
 
 @app.route("/view_cli_info", methods = ['GET'])
 def view_cli_info():
 
     return
 
-@app.route("/modify_cli_info", methods = ['PUSH'])
+"""@app.route("/modify_cli_info", methods = ['PUSH'])
 def modify_cli_info():
 
     return
@@ -132,7 +141,7 @@ def modify_cli_info():
 @app.route("/view_video", methods = ['GET'])
 def modify_cli_info():
 
-    return
+    return"""
 
 
 '''@app.route('/', methods=['POST','GET'])                     #登入暫存

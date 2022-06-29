@@ -24,6 +24,7 @@ config={
     "appId": "1:611248274498:web:12736121d136ec61cb81db",
     "measurementId": "G-BE77YGKJCV"}
 
+#andy的config
 """config={
     'apiKey': "AIzaSyAMhO6obi2vNuSAdwMl73o9AOFcdkFDR7Y",
     'authDomain': "project-bc30f.firebaseapp.com",

@@ -5,7 +5,7 @@ from urllib import response
 import pyrebase
 from flask import Flask, redirect, render_template, url_for, request, session, jsonify , Response,send_file
 from flask_cors import CORS
-#from flask_bcrypt import Bcrypt
+import bcrypt
 from sys import exit as sys_exit
 import requests
 from google.cloud.firestore_v1 import Increment
@@ -15,6 +15,16 @@ from firebase_admin import credentials
 #from requests import request, session
 
 config={
+    "apiKey": "AIzaSyBxID4_kAxePegIf4hav5XU2J6dY2wtsr0",
+    "authDomain": "fightiden.firebaseapp.com",
+    "databaseURL":"https://fightiden.firebaseapp.com",
+    "projectId" : "fightiden",
+    "storageBucket": "fightiden.appspot.com",
+    "messagingSenderId": "611248274498",
+    "appId": "1:611248274498:web:12736121d136ec61cb81db",
+    "measurementId": "G-BE77YGKJCV"}
+
+"""config={
     'apiKey': "AIzaSyAMhO6obi2vNuSAdwMl73o9AOFcdkFDR7Y",
     'authDomain': "project-bc30f.firebaseapp.com",
     'projectId': "project-bc30f",
@@ -22,7 +32,7 @@ config={
     'messagingSenderId': "871167837901",
     'appId': "1:871167837901:web:e731a23bf699677f888b84",
     'databaseURL':""
-}
+}"""
 #firebase 應用程式連線
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
@@ -59,28 +69,29 @@ def home():
 @app.route("/register", methods=["POST"])     #註冊帳號
 def register_user():
     if request.method == 'POST':
-        
+
         data = request.get_json()
         email = data.get('email')
-        password = data.get('password')
+        password = data.get('password').encode('utf-8')
         name = data.get('name')
+        password = bcrypt.hashpw(password, bcrypt.gensalt())
         resp = Response("")
-        
-        
+
+
         #hashed_password = bcrypt.generate_password_hash(password)
         try:
             doc = {
                 'name': name,
-                'password':password
+                'password':password.decode('utf-8')
             }
-            auth.create_user_with_email_and_password(email,password)
+            #auth.create_user_with_email_and_password(email,password.decode('utf-8'))
             doc_add = db.collection("members").document(email)
             doc_add.set(doc)
         except requests.exceptions.HTTPError as err :
             print(err)
-            
+
             return  resp,"email_exist"
-    return resp
+    return password.decode('utf-8')
 
 
 @app.route("/login", methods=["POST"])        #登入
@@ -89,15 +100,20 @@ def login():
 
         data = request.get_json()
         email = data.get('email')
-        password = data.get('password')
+        password = data.get('password').encode('utf-8')
         resp = Response("")
 
         try:
-            user = auth.sign_in_with_email_and_password(email,password)
-
-            info = auth.get_account_info(user['idToken'])
-            print(info)
-
+            #user = auth.sign_in_with_email_and_password(email,password.decode('utf-8'))
+            user_doc = db.collection("members").document(email)
+            user_email = user_doc.get()
+            
+            if user_email.exists:
+                if bcrypt.hashpw(password, user_doc.get().to_dict()["password"].encode('utf-8')) == user_doc.get().to_dict()["password"].encode('utf-8'):
+                    return "成功登入"
+                else :
+                    return "登入失敗"#$2b$12$2Fsd/H7PDrJMDpE0yo4j2OqdyJKrkyqAD3BoOm9evaGB6rsvH21Om
+                                      
         except requests.exceptions.HTTPError as err :
             print(err)
             
@@ -129,7 +145,7 @@ def logout():
 
 @app.route("/view_cli_info", methods = ['GET'])
 def view_cli_info():
-
+    
     return
 
 """@app.route("/modify_cli_info", methods = ['PUSH'])

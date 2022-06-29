@@ -7,6 +7,7 @@ from flask import Flask, redirect, render_template, url_for, request, session, j
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from sys import exit as sys_exit
+import requests
 
 #from requests import request, session
 
@@ -52,43 +53,87 @@ def home():
     return render_template('home.html')
 
 
-@app.route("/register", methods=["POST"])
+@app.route("/register", methods=["POST"])     #註冊帳號
 def register_user():
     if request.method == 'POST':
         
         data = request.get_json()
-        item = {'email': data.get('email'), 'password': data.get('password')}
         email = data.get('email')
         password = data.get('password')
-        print(item)
-        print(request.form)
 
-        resp = Response("Foo bar baz")
-        resp.headers['Access-Control-Allow-Origin']= '*'
+        resp = Response("")
         
+        
+        #hashed_password = bcrypt.generate_password_hash(password)
         try:
-            user_exists = auth.sign_in_with_email_and_password(email,password)
-            user = auth.create_user_with_email_and_password(email,password)
-        except:
-            hashed_password = bcrypt.generate_password_hash(password)
-            user = auth.create_user_with_email_and_password(email,password)
-            session['user'] = email
-            print(session['user'])
-            info = auth.get_account_info(user['idToken'])
-            print(info)
-            return resp
-        return  resp
-    return "ya"
-
-'''@app.route('/register', methods=['POST'])
-def register():
-    resp = Response("Foo bar baz")
-    resp.headers['Access-Control-Allow-Origin'] = '*'
+            auth.create_user_with_email_and_password(email,password)
+        except requests.exceptions.HTTPError as err :
+            print(err)
+            
+            return  resp,"email_exist"
     return resp
 
-@app.route('/members')'''
-def members():
-    return {"members":["member1","member2","member3"]}
+
+@app.route("/login", methods=["POST"])        #登入
+def login():
+    if request.method == 'POST':
+
+        data = request.get_json()
+        email = data.get('email')
+        password = data.get('password')
+        resp = Response("")
+
+        try:
+            user = auth.sign_in_with_email_and_password(email,password)
+
+            info = auth.get_account_info(user['idToken'])
+            print(info)
+
+        except requests.exceptions.HTTPError as err :
+            print(err)
+            
+            return  resp,"Email_not_not_found"
+    return resp
+
+
+@app.route("/forget_pswd", methods = ["POST"])
+def forget_pswd():
+    resp = Response("")
+    if request.method == 'POST':
+        data = request.get_json()
+        email = data.get('email')
+
+        try:
+            auth.send_password_reset_email(email)
+
+        except requests.exceptions.HTTPError as err :
+            print(err)
+
+            return resp,"Email_not_not_found"
+    return resp
+
+
+@app.route("/logout", methods = ['GET'])
+def logout():
+
+    return
+
+@app.route("/view_cli_info", methods = ['GET'])
+def view_cli_info():
+
+    return
+
+@app.route("/modify_cli_info", methods = ['PUSH'])
+def modify_cli_info():
+
+    return
+
+
+@app.route("/view_video", methods = ['GET'])
+def modify_cli_info():
+
+    return
+
 
 '''@app.route('/', methods=['POST','GET'])                     #登入暫存
 def home():

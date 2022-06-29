@@ -146,19 +146,41 @@ def logout():
 
 @app.route("/view_cli_info", methods = ['GET'])
 def view_cli_info():
+    resp = Response("")
+    email = "teststorage3@gmail.com"
+
+    doc_ref = db.collection('members')
+    docs = doc_ref.get()
+    for doc in docs:
+        print(u'{} => {}'.format(doc.id, doc.to_dict()))
     
-    return
+    
+    doc_ref = db.collection('members').document(email)
+    docs = doc_ref.get()
+    print('密碼 => {}'.format(docs.to_dict()['password']))
+    password = docs.to_dict()['password']
+    
+    return jsonify({"password": password})
 
-"""@app.route("/modify_cli_info", methods = ['PUSH'])
+@app.route("/modify_cli_info", methods = ['PUSH'])
 def modify_cli_info():
-
-    return
+    resp = Response("")
+    email = "teststorage3@gmail.com"
+    data = request.get_json()
+    password = data.get("password")
+    
+    doc_ref = db.collection('members').document(email)
+    doc_ref.update({
+        "password" : password
+    })
+    
+    return jsonify({"password": password})
 
 
 @app.route("/view_video", methods = ['GET'])
 def modify_cli_info():
 
-    return"""
+    return
 
 
 '''@app.route('/', methods=['POST','GET'])                     #登入暫存

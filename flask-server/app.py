@@ -1,9 +1,10 @@
 #from crypt import methods
 import os
+import zipfile
 from pickle import TRUE
 from urllib import response
 import pyrebase
-from flask import Flask, redirect, render_template, url_for, request, session, jsonify , Response,send_file
+from flask import Flask, redirect, render_template, url_for, request, session, jsonify , Response,send_file,send_from_directory
 from flask_cors import CORS
 import bcrypt
 from sys import exit as sys_exit
@@ -12,7 +13,11 @@ from google.cloud.firestore_v1 import Increment
 import firebase_admin
 from firebase_admin import firestore
 from firebase_admin import credentials
+from werkzeug.utils import secure_filename
+from io import BytesIO
 #from requests import request, session
+#pip install Flask-Mail
+
 
 config={
     "apiKey": "AIzaSyBxID4_kAxePegIf4hav5XU2J6dY2wtsr0",
@@ -34,6 +39,10 @@ config={
     'appId': "1:871167837901:web:e731a23bf699677f888b84",
     'databaseURL':""
 }"""
+#照片檔的檢查
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 #firebase 應用程式連線
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
@@ -178,11 +187,48 @@ def modify_cli_info():
 
 
 @app.route("/view_video", methods = ['GET'])
-def modify_cli_info():
+def view_video():
+    resp = Response("")
 
-    return
+    return resp
 
+@app.route('/upload_pic', methods=['POST'])
+def upload_pic():
+	# check if the post request has the file part
+	if 'file' not in request.files:
+		resp = jsonify({'message' : 'No file part in the request'})
+		resp.status_code = 400
+		return resp
+	file = request.files['file']
+	if file.filename == '':
+		resp = jsonify({'message' : 'No file selected for uploading'})
+		resp.status_code = 400
+		return resp
+	if file and allowed_file(file.filename):
+		filename = secure_filename(file.filename)
+		#file.save(os.path.join(app.config['../videos'], filename))
+		resp = jsonify({'message' : 'File successfully uploaded'})
+		resp.status_code = 201
+		return resp
+	else:
+		resp = jsonify({'message' : 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
+		resp.status_code = 400
+		return resp
 
+@app.route('/download_video',methods=['GET'])
+def download_video():
+    num=1
+    #memory_file = BytesIO()
+    file_list = os.listdir("../videos/")
+    print("//////")
+    print(len(file_list))
+    with zipfile.ZipFile("./tmp.zip", "w", zipfile.ZIP_DEFLATED) as zf:
+        for _file in file_list:
+                zf.write("../videos/"+_file,_file)#"video"+str(num)
+                num+=1
+        
+        
+    return send_from_directory(directory="./",path="./",filename="tmp.zip",as_attachment=True)
 '''@app.route('/', methods=['POST','GET'])                     #登入暫存
 def home():
     if ('user' in session):

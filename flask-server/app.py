@@ -1,8 +1,8 @@
-#from crypt import methods
 import os
 import zipfile
 from pickle import TRUE
 from urllib import response
+import urllib
 import pyrebase
 from flask import Flask, redirect, render_template, url_for, request, session, jsonify , Response,send_file,send_from_directory
 from flask_cors import CORS
@@ -12,6 +12,7 @@ import requests
 from google.cloud.firestore_v1 import Increment
 import firebase_admin
 from firebase_admin import firestore
+from firebase_admin import storage as admin_storage
 from firebase_admin import credentials
 from werkzeug.utils import secure_filename
 from io import BytesIO
@@ -27,7 +28,9 @@ config={
     "storageBucket": "fightiden.appspot.com",
     "messagingSenderId": "611248274498",
     "appId": "1:611248274498:web:12736121d136ec61cb81db",
-    "measurementId": "G-BE77YGKJCV"}
+    "measurementId": "G-BE77YGKJCV",
+    "serviceAccount":"../firebase/privatekey.json"
+    }
 
 #andy的config
 """config={
@@ -46,6 +49,7 @@ def allowed_file(filename):
 #firebase 應用程式連線
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+storage = firebase.storage()
 #firebase DB 連線
 if not firebase_admin._apps:
     cred = credentials.Certificate("../firebase/privatekey.json")
@@ -55,12 +59,23 @@ db = firestore.client()
 app = Flask(__name__)
 
 cors = CORS(app)
-#bcrypt = Bcrypt(app)
 
 app.secret_key = 'secret'
 #從firebase下載用戶影片
 def reset_videos(user_name):
-    return
+    old_videos = os.listdir("../videos/")
+    for index,video in old_videos:
+        os.remove("../videos/"+video)
+    all_files=storage.child("vedios").list_files()
+    num=1
+    for file in all_files:    
+        if(file.name.split("/")[0]=="vedios"):
+            if(file.name.split("/")[1]==user_name):
+                print(storage.child(file.name).get_url(None)) 
+                urllib.request.urlretrieve(storage.child(file.name).get_url(None),"../videos/"+str(num)+".avi") 
+                num+=1 
+    num=0 
+    return "finished"
 
 @app.route('/', methods=['POST','GET'])
 def home():
@@ -220,17 +235,14 @@ def upload_pic():
 
 @app.route('/download_video',methods=['GET'])
 def download_video():
-    
+    reset_videos("user1")
     num=1
-    #memory_file = BytesIO()
     file_list = os.listdir("../videos/")
-    print("//////")
     print(len(file_list))
     with zipfile.ZipFile("./tmp.zip", "w", zipfile.ZIP_DEFLATED) as zf:
         for _file in file_list:
-                zf.write("../videos/"+_file,_file)#"video"+str(num)
+                zf.write("../videos/"+_file,_file)
                 num+=1
-        
         
     return send_from_directory(directory="./",path="./",filename="tmp.zip",as_attachment=True)
 '''@app.route('/', methods=['POST','GET'])                     #登入暫存

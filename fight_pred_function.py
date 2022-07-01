@@ -124,7 +124,7 @@ def upload_file():
     try:
         for index,imgName in enumerate(img_list): 
             fileUrl = "./videos/"+imgName
-            cloudfilename = "vedios/fight_1/"+local_time+"/"+imgName
+            cloudfilename = "videos/user1/"+local_time+"/"+imgName
             storage.child(cloudfilename).put(fileUrl)
     
     except:
@@ -199,9 +199,10 @@ app = Flask(__name__)
 @app.route("/")
 def first_page():
     return jsonify({"hello!!!!":"world"})
-@app.route("/start")
+@app.route("/start",methods=["GET"])
 def start():
     start_the_iden()
+    upload_file()
     print("TAT")
     return jsonify({"result":"finished"})
 

@@ -58,6 +58,9 @@ cors = CORS(app)
 #bcrypt = Bcrypt(app)
 
 app.secret_key = 'secret'
+#從firebase下載用戶影片
+def reset_videos(user_name):
+    return
 
 @app.route('/', methods=['POST','GET'])
 def home():
@@ -217,6 +220,7 @@ def upload_pic():
 
 @app.route('/download_video',methods=['GET'])
 def download_video():
+    
     num=1
     #memory_file = BytesIO()
     file_list = os.listdir("../videos/")

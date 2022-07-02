@@ -63,9 +63,11 @@ cors = CORS(app)
 app.secret_key = 'secret'
 #從firebase下載用戶影片
 def reset_videos(user_name):
+    #把舊影片刪除
     old_videos = os.listdir("../videos/")
     for index,video in old_videos:
         os.remove("../videos/"+video)
+    #將使用者影片載下來
     all_files=storage.child("vedios").list_files()
     num=1
     for file in all_files:    
@@ -93,7 +95,7 @@ def home():
             return 'Failed to login'
     return render_template('home.html')
 
-
+#註冊
 @app.route("/register", methods=["POST"])     #註冊帳號
 def register_user():
     if request.method == 'POST':
@@ -121,7 +123,7 @@ def register_user():
             return  resp,"email_exist"
     return password.decode('utf-8')
 
-
+#登入
 @app.route("/login", methods=["POST"])        #登入
 def login():
     if request.method == 'POST':
@@ -148,7 +150,7 @@ def login():
             return  resp,"Email_not_not_found"
     return resp
 
-
+#忘記密碼
 @app.route("/forget_pswd", methods = ["POST"])
 def forget_pswd():
     resp = Response("")
@@ -170,7 +172,7 @@ def forget_pswd():
 def logout():
 
     return"""
-
+#檢視會員資訊
 @app.route("/view_cli_info", methods = ['GET'])
 def view_cli_info():
     resp = Response("")
@@ -188,7 +190,7 @@ def view_cli_info():
     password = docs.to_dict()['password']
     
     return jsonify({"password": password})
-
+#修改會員資訊
 @app.route("/modify_cli_info", methods = ['PUSH'])
 def modify_cli_info():
     resp = Response("")
@@ -203,13 +205,8 @@ def modify_cli_info():
     
     return jsonify({"password": password})
 
-
-@app.route("/view_video", methods = ['GET'])
-def view_video():
-    resp = Response("")
-
     return resp
-
+#上傳檔案
 @app.route('/upload_pic', methods=['POST'])
 def upload_pic():
 	# check if the post request has the file part
@@ -232,7 +229,7 @@ def upload_pic():
 		resp = jsonify({'message' : 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
 		resp.status_code = 400
 		return resp
-
+#檢視影片
 @app.route('/download_video',methods=['GET'])
 def download_video():
     reset_videos("user1")

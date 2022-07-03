@@ -325,6 +325,7 @@ import React from 'react';
 import {Text,View,Image, TextInput,Alert,styles} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import { setBadgeCountAsync } from 'expo-notifications';
+import axios from 'axios';
 
 
 
@@ -345,7 +346,7 @@ export default class Home extends React.Component{
 
 
      getJsonData = () => {
-        fetch('https://fightiden.firebaseapp.com',
+        fetch('http://127.0.0.1:5000/login',
         {method:'GET='}).then((response) => response.json())
         .then((responseJson) => {
             console.log(responseJson);
@@ -371,6 +372,55 @@ export default class Home extends React.Component{
         else{
             this.setState({emailError:""})
         }
+        /*axios.get("http://10.0.2.2:5000/login", 
+            { 
+              email : this.state.mail ,
+              password : this.state.password
+            },
+            {
+              headers:{
+              "Content-Type": "application/json"
+            }
+          })
+        .then(function (response) {
+          console.log(response);
+          if (response.statusText == "email_inexist"){
+            alert("電子郵件不存在");
+          }
+          else if(response.statusText == "logined"){
+            alert("成功登入");
+            navigate("Check");
+          }
+          else if(response.statusText == "fault"){
+            alert("該電子郵件密碼錯誤");
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });*/
+        axios.post("http://10.0.2.2:5000/register", 
+            { 
+              email : this.state.mail ,
+              password : this.state.password
+            },
+            {
+              headers:{
+              "Content-Type": "application/json"
+            }
+          })
+        .then(function (response) {
+          console.log(response);
+          if (response.statusText == "email_exist"){
+            alert("電子郵件已被註冊");
+          }
+          else{
+            alert("成功註冊會員");
+            navigate('Check');
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
      }
 
      emailValid(){

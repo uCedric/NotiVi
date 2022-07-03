@@ -107,7 +107,7 @@ def register_user():
         password = bcrypt.hashpw(password, bcrypt.gensalt())
         resp = Response("")
 
-
+        print(str(email))
         #hashed_password = bcrypt.generate_password_hash(password)
         try:
             doc = {
@@ -124,7 +124,7 @@ def register_user():
     return password.decode('utf-8')
 
 #登入
-@app.route("/login", methods=["POST"])        #登入
+@app.route("/login", methods=["GET"])        
 def login():
     if request.method == 'POST':
 
@@ -140,10 +140,12 @@ def login():
             
             if user_email.exists:
                 if bcrypt.hashpw(password, user_doc.get().to_dict()["password"].encode('utf-8')) == user_doc.get().to_dict()["password"].encode('utf-8'):
-                    return "成功登入"
+                    return resp,"logined"
                 else :
-                    return "登入失敗"#$2b$12$2Fsd/H7PDrJMDpE0yo4j2OqdyJKrkyqAD3BoOm9evaGB6rsvH21Om
-                                      
+                    return resp,"fault"#$2b$12$2Fsd/H7PDrJMDpE0yo4j2OqdyJKrkyqAD3BoOm9evaGB6rsvH21Om
+            else:
+                return resp,"email_inexist"
+
         except requests.exceptions.HTTPError as err :
             print(err)
             

@@ -3,7 +3,7 @@ import {Text,View,Image, TextInput} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 //class based
 
-export default class Register extends React.Component{
+ export default class Register extends React.Component{
 
     render(){
         
@@ -115,4 +115,4 @@ export default class Register extends React.Component{
             </View>
         )
     }
-}
+} 

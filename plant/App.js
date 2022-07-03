@@ -9,27 +9,10 @@ import * as Permissions from 'expo-permissions';
 const image = { uri: "https://designimages.appypie.com/appbackground/appbackground-65-nature-outdoors.jpg" };
 
 export default function App (){
-  useEffect(() => {
-    registerForPushNotification().then(token=>console.log(token)).
-    catch(err => console.log(Err))
-  }, [])
- 
-  async function registerForPushNotification(){
-    const {status} = await Permissions.getAsync(Permissions.NOTIFICATIONS);
-    if (status != 'granted') {
-      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-      // finalStatus = status;
-    }
-    if (status !== 'granted') {
-      alert('Failed to get push token for push notification!');
-      return;
-    }
-    token = (await Notifications.getExpoPushTokenAsync()).data;
-    return token
-  }
+  
 
   return(
-   <NavigationContainer>
+    <NavigationContainer>
       <HomeStackNavigator/>
     </NavigationContainer>
 

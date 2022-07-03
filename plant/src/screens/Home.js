@@ -322,8 +322,9 @@ const Home = ({navigation}) => {
 }
 export default Home;  */
 import React from 'react';
-import {Text,View,Image, TextInput,Alert} from 'react-native';
+import {Text,View,Image, TextInput,Alert,styles} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
+import { setBadgeCountAsync } from 'expo-notifications';
 
 
 
@@ -332,7 +333,76 @@ import Icon from '@expo/vector-icons/AntDesign';
     
 
 export default class Home extends React.Component{
-   
+    constructor(){
+        super();
+        this.state={
+            mail:'',
+            password:'',
+            emailError:'',
+            passwordError:''
+        }
+    }
+
+
+     getJsonData = () => {
+        fetch('https://fightiden.firebaseapp.com',
+        {method:'GET='}).then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson);
+            this.setState({
+                data:responseJson
+            })
+        })
+        .catch((error) => {
+            console.error(error)
+        });
+    }
+    componentDidMount = () => {
+        this.getJsonData()
+    } 
+    
+    submit(){
+        let rjx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+        let isValid=rjx.test(this.state.mail)
+        console.warn(this.state)  
+        if(!isValid){
+            this.setState({emailError:"email type is wrong"})
+        }
+        else{
+            this.setState({emailError:""})
+        }
+     }
+
+     emailValid(){
+        if(this.state.mail ==""){
+            this.setState({emailError:"email field can not be empty"})
+        }
+        else{
+            this.setState({emailError:""})
+        }
+     }
+
+     PasswordValid(){
+        if(this.state.password ==""){
+            this.setState({passwordError:"password field can not be empty"})
+        }
+        else{
+            this.setState({passwordError:""})
+        }
+     }
+
+     updateValue(text, field){
+        if(field=='mail'){
+            this.setState({
+                mail:text,
+            })
+        }else if(field=='password'){
+            this.setState({
+                password:text,
+            })
+        }
+        
+     }
     
 
     render(){
@@ -350,7 +420,7 @@ export default class Home extends React.Component{
                  }}
                 >Welcome to our app!!</Text>
 
-                <Text
+                 <Text
                 style={{
                    // fontFamily:"SemiBold",
                     marginHorizontal:55,
@@ -361,28 +431,29 @@ export default class Home extends React.Component{
                 >
                  
                 </Text>
-
+                <Text></Text>
+                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.emailError}</Text>
                 <View style={{
-                    flexDirection:"row",
-                    alignItems:"center",
-                    marginHorizontal:55,
-                    borderWidth:2,
-                    marginTop:50,
-                    paddingHorizontal:10,
-                    borderColor:"#00716F",
-                    borderRadius:23,
-                    paddingVertical:2
+                     borderWidth:2,
+                     borderColor:"#00716F",
+                     paddingVertical:5,
+                     marginHorizontal:50
                 }}>
-                    <Icon name="mail" color="#00716F" size={24}/>
+                   {/*  <Icon name="mail" color="#00716F" size={24}/> */}
+                   
                     <TextInput 
+                        onBlur={() => this.emailValid()}
+                        onChangeText={(text) => this.updateValue(text, 'mail')}
                         style={{paddingHorizontal:10}}
                     />
 
-                    
-
+                   
+  
                 </View>
+                <Text></Text>
+                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
                 <View style={{
-                    flexDirection:"row",
+                    /* flexDirection:"row",
                     alignItems:"center",
                     marginHorizontal:55,
                     borderWidth:2,
@@ -390,11 +461,18 @@ export default class Home extends React.Component{
                     paddingHorizontal:10,
                     borderColor:"#00716F",
                     borderRadius:23,
-                    paddingVertical:2
+                    paddingVertical:2  */
+                    borderWidth:2,
+                    borderColor:"#00716F",
+                    paddingVertical:5,
+                    marginHorizontal:50
                 }}>
-                    <Icon name="mail" color="#00716F" size={24}/>
+                    {/*  <Icon name="mail" color="#00716F" size={24}/>  */}
                     <TextInput 
-                        style={{paddingHorizontal:20}}
+                        onBlur={() => this.PasswordValid()}
+                        secureTextEntry={true}
+                        onChangeText={(text) => this.updateValue(text, 'password')}
+                        style={{paddingHorizontal:10}}
                     />
 
                     
@@ -410,9 +488,12 @@ export default class Home extends React.Component{
                     paddingVertical:10,
                     borderRadius:23
                 }}>
-                    <Text  
+                
                     
-                     onPress={()=>navigate('ImageCheck')}
+                    <Text  
+                      onPress={()=>this.submit()}
+                     // onPress={()=>this.getJsonData()}
+                     //onPress={()=>navigate('ImageCheck')}
                      
 
                     style={{
@@ -429,7 +510,9 @@ export default class Home extends React.Component{
                     color:"#00716F",
                     //fontFamily:"SemiBold",
                     paddingVertical:30
-                }}>New User</Text>
+                }}>New User</Text> 
+
+               
             </View>
         )
     }

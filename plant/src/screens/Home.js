@@ -372,7 +372,7 @@ export default class Home extends React.Component{
         else{
             this.setState({emailError:""})
         }
-        /*axios.get("http://10.0.2.2:5000/login", 
+        axios.post("http://10.0.2.2:5000/login", 
             { 
               email : this.state.mail ,
               password : this.state.password
@@ -383,22 +383,23 @@ export default class Home extends React.Component{
             }
           })
         .then(function (response) {
-          console.log(response);
-          if (response.statusText == "email_inexist"){
+          console.log(response.data);
+          if (response.data == "email_inexist"){
+            print(response._response)
             alert("電子郵件不存在");
           }
-          else if(response.statusText == "logined"){
+          else if(response.data == "logined"){
             alert("成功登入");
             navigate("Check");
           }
-          else if(response.statusText == "fault"){
+          else if(response.data == "fault"){
             alert("該電子郵件密碼錯誤");
           }
         })
         .catch(function (error) {
           console.log(error);
-        });*/
-        axios.post("http://10.0.2.2:5000/register", 
+        });
+        /*axios.post("http://10.0.2.2:5000/register", 
             { 
               email : this.state.mail ,
               password : this.state.password
@@ -410,7 +411,7 @@ export default class Home extends React.Component{
           })
         .then(function (response) {
           console.log(response);
-          if (response.statusText == "email_exist"){
+          if (response.data == "email_exist"){
             alert("電子郵件已被註冊");
           }
           else{
@@ -420,7 +421,7 @@ export default class Home extends React.Component{
         })
         .catch(function (error) {
           console.log(error);
-        });
+        });*/
      }
 
      emailValid(){

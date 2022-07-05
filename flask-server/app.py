@@ -120,37 +120,36 @@ def register_user():
         except requests.exceptions.HTTPError as err :
             print(err)
 
-            return  resp,"email_exist"
+            return  Response("email_exist")
     return password.decode('utf-8')
 
 #登入
-@app.route("/login", methods=["GET"])        
+@app.route("/login", methods=["POST"])        
 def login():
     if request.method == 'POST':
-
         data = request.get_json()
         email = data.get('email')
         password = data.get('password').encode('utf-8')
-        resp = Response("")
-
+        
+        statusText =""
         try:
             #user = auth.sign_in_with_email_and_password(email,password.decode('utf-8'))
             user_doc = db.collection("members").document(email)
             user_email = user_doc.get()
             
             if user_email.exists:
-                if bcrypt.hashpw(password, user_doc.get().to_dict()["password"].encode('utf-8')) == user_doc.get().to_dict()["password"].encode('utf-8'):
-                    return resp,"logined"
+                if bcrypt.hashpw(password, user_email.to_dict()["password"].encode('utf-8')) == user_email.to_dict()["password"].encode('utf-8'):#user_doc.get()
+                    return Response("logined")#resp,
                 else :
-                    return resp,"fault"#$2b$12$2Fsd/H7PDrJMDpE0yo4j2OqdyJKrkyqAD3BoOm9evaGB6rsvH21Om
+                    return Response("fault")#$2b$12$2Fsd/H7PDrJMDpE0yo4j2OqdyJKrkyqAD3BoOm9evaGB6rsvH21Om
             else:
-                return resp,"email_inexist"
+                return Response("email_inexist")
 
         except requests.exceptions.HTTPError as err :
             print(err)
             
-            return  resp,"Email_not_not_found"
-    return resp
+            return  Response("Email_not_not_found")
+    #return statusText
 
 #忘記密碼
 @app.route("/forget_pswd", methods = ["POST"])

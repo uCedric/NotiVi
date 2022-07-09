@@ -392,7 +392,9 @@ export default class Home extends React.Component{
           }
           else if(response.data == "logined"){
             alert("成功登入");
+
             navigate("Message");
+   
           }
           else if(response.data == "fault"){
             alert("該電子郵件密碼錯誤");

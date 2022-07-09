@@ -113,6 +113,7 @@ import Modify from '../screens/Modify'
 import Time from '../screens/Time'
 import TimeSet from '../screens/TimeSet'
 import ImageCheck from '../screens/ImageCheck'
+import Begin from '../screens/Begin'
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -181,6 +182,8 @@ const screenOptionStyle = {
 const HomeStackNavigator = () => {
     return(
         <Stack.Navigator screenOptions={screenOptionStyle}>
+            <Stack.Screen name="Begin" component={Begin}/>
+            <Stack.Screen name="Message" component={Message}/>
             <Stack.Screen name="Home" component={BottomTabNavigator}/>
             <Stack.Screen name="Detail" component={Detail}/>
             <Stack.Screen name="Register" component={Register}/>
@@ -189,6 +192,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="Time" component={Time}/>
             <Stack.Screen name="TimeSet" component={TimeSet}/>
             <Stack.Screen name="ImageCheck" component={ImageCheck}/>
+           
            
         </Stack.Navigator>
     )

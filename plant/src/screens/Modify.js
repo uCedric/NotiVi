@@ -4,6 +4,50 @@ import Icon from '@expo/vector-icons/AntDesign';
 //class based
 
 export default class Modify extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            password:'',
+            passwordError:''
+        }
+    }
+
+    submit(){
+        console.warn(this.state)  
+        axios.post("http://10.0.2.2:5000/login", 
+            { 
+              email : this.state.mail ,
+              password : this.state.password
+            },
+            {
+              headers:{
+              "Content-Type": "application/json"
+            }
+          })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+    PasswordValid(){
+        if(this.state.password ==""){
+            this.setState({passwordError:"password field can not be empty"})
+        }
+        else{
+            this.setState({passwordError:""})
+        }
+     }
+
+     updateValue(text, field){
+         if(field=='password'){
+            this.setState({
+                password:text,
+            })
+        }
+    }
+
+
+
 
     render(){
         
@@ -45,14 +89,10 @@ export default class Modify extends React.Component{
 
                 <View style={{
                     flexDirection:"row",
-                    alignItems:"center",
-                    marginHorizontal:55,
                     borderWidth:2,
-                    marginTop:5,
-                    paddingHorizontal:10,
                     borderColor:"#00716F",
-                    borderRadius:23,
-                    paddingVertical:2,
+                    paddingVertical:5,
+                    marginHorizontal:50,
                     backgroundColor:"white"
                 }}>
 
@@ -87,48 +127,45 @@ export default class Modify extends React.Component{
                  }}
                 >New Password:</Text>
 
-
+                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
                 <View style={{
-                    flexDirection:"row",
-                    alignItems:"center",
-                    marginHorizontal:55,
-                    borderWidth:2,
-                    marginTop:10,
-                    paddingHorizontal:10,
-                    borderColor:"#00716F",
-                    borderRadius:23,
-                    paddingVertical:2,
-                    backgroundColor:"white"
+                   //flexDirection:"row",
+                   borderWidth:2,
+                   borderColor:"#00716F",
+                   paddingVertical:5,
+                   marginHorizontal:50,
+                   backgroundColor:"white"
                 }}>
                    
                    <TextInput 
                         secureTextEntry
                         placeholder="Password"
                         placeholderTextColor="#00716F"
+                        onBlur={() => this.PasswordValid()}
+                        onChangeText={(text) => this.updateValue(text, 'password')}
                         style={{paddingHorizontal:10}}
                     />
                     
 
                 </View>
-
+                <Text></Text>
+                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
                 <View style={{
-                    flexDirection:"row",
-                    alignItems:"center",
-                    marginHorizontal:55,
+                   // flexDirection:"row",
                     borderWidth:2,
-                    marginTop:10,
-                    paddingHorizontal:10,
                     borderColor:"#00716F",
-                    borderRadius:23,
-                    paddingVertical:2,
+                    paddingVertical:5,
+                    marginHorizontal:50,
                     backgroundColor:"white"
                 }}>
                    
                    <TextInput 
-                        secureTextEntry
-                        placeholder="Confirm Password"
-                        placeholderTextColor="#00716F"
-                        style={{paddingHorizontal:10}}
+                       secureTextEntry
+                       placeholder="Confirm password"
+                       placeholderTextColor="#00716F"
+                       onBlur={() => this.PasswordValid()}
+                       onChangeText={(text) => this.updateValue(text, 'password')}
+                       style={{paddingHorizontal:10}}
                     />
                     
 

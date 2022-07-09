@@ -17,7 +17,7 @@ export default class Profile extends React.Component{
       
 
     <View style={styles.container}>
-       <ImageBackground source ={require('../images/background.jpeg')}
+       <ImageBackground source ={require('../images/cloud.png')}
                     //styles={{width:"200%",height:"100%"}}
                     resizeMode="cover"
                     style={styles.image}>
@@ -39,7 +39,7 @@ export default class Profile extends React.Component{
       <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Time')}>
-        <Text style={styles.buttonText}>Setting</Text>
+        <Text style={styles.buttonText}>Switch setting</Text>
       </TouchableOpacity>
       <Text></Text>
 
@@ -104,8 +104,10 @@ export default class Profile extends React.Component{
       color: 'black',
       fontSize: 30,
       marginHorizontal: 15,
-      marginBottom: 10,
-      textAlign: "center"
+      marginBottom: 65,
+      textAlign: "center",
+      fontWeight:"bold",
+      color:"purple"
     },
 
     button:{

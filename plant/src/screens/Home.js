@@ -322,9 +322,10 @@ const Home = ({navigation}) => {
 }
 export default Home;  */
 import React from 'react';
-import {Text,View,Image, TextInput,Alert,styles} from 'react-native';
+import {Text,View,Image, TextInput,Alert,styles, BackHandler,ImageBackground} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import { setBadgeCountAsync } from 'expo-notifications';
+import axios from 'axios';
 
 
 
@@ -333,6 +334,8 @@ import { setBadgeCountAsync } from 'expo-notifications';
     
 
 export default class Home extends React.Component{
+     
+
     constructor(){
         super();
         this.state={
@@ -345,7 +348,7 @@ export default class Home extends React.Component{
 
 
      getJsonData = () => {
-        fetch('https://fightiden.firebaseapp.com',
+        fetch('http://127.0.0.1:5000/login',
         {method:'GET='}).then((response) => response.json())
         .then((responseJson) => {
             console.log(responseJson);
@@ -371,6 +374,56 @@ export default class Home extends React.Component{
         else{
             this.setState({emailError:""})
         }
+        axios.post("http://10.0.2.2:5000/login", 
+            { 
+              email : this.state.mail ,
+              password : this.state.password
+            },
+            {
+              headers:{
+              "Content-Type": "application/json"
+            }
+          })
+        .then(function (response) {
+          console.log(response.data);
+          if (response.data == "email_inexist"){
+            print(response._response)
+            alert("電子郵件不存在");
+          }
+          else if(response.data == "logined"){
+            alert("成功登入");
+            navigate("Message");
+          }
+          else if(response.data == "fault"){
+            alert("該電子郵件密碼錯誤");
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        /*axios.post("http://10.0.2.2:5000/register", 
+            { 
+              email : this.state.mail ,
+              password : this.state.password
+            },
+            {
+              headers:{
+              "Content-Type": "application/json"
+            }
+          })
+        .then(function (response) {
+          console.log(response);
+          if (response.data == "email_exist"){
+            alert("電子郵件已被註冊");
+          }
+          else{
+            alert("成功註冊會員");
+            navigate('Check');
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });*/
      }
 
      emailValid(){
@@ -403,14 +456,20 @@ export default class Home extends React.Component{
         }
         
      }
-    
+     
+
 
     render(){
         const {navigate} = this.props.navigation
         return(
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
+                 {/* <ImageBackground source ={require('../images/background.jpeg')}
+                    //styles={{width:"200%",height:"100%"}}
+                    resizeMode="cover"
+                    style={{flex: 5,
+                        justifyContent: "center"}}>  */}
                 <Image source ={require('../images/anti.png')}
-                    style={{width:"100%",height:"43%"}}
+                    style={{width:"100%",height:"43%",}}
                 />
                 <Text
                  style={{
@@ -442,6 +501,8 @@ export default class Home extends React.Component{
                    {/*  <Icon name="mail" color="#00716F" size={24}/> */}
                    
                     <TextInput 
+                        placeholder='Email'
+                        placeholderTextColor="#00716F"
                         onBlur={() => this.emailValid()}
                         onChangeText={(text) => this.updateValue(text, 'mail')}
                         style={{paddingHorizontal:10}}
@@ -469,6 +530,8 @@ export default class Home extends React.Component{
                 }}>
                     {/*  <Icon name="mail" color="#00716F" size={24}/>  */}
                     <TextInput 
+                        placeholder='Password'
+                        placeholderTextColor="#00716F"
                         onBlur={() => this.PasswordValid()}
                         secureTextEntry={true}
                         onChangeText={(text) => this.updateValue(text, 'password')}
@@ -491,9 +554,9 @@ export default class Home extends React.Component{
                 
                     
                     <Text  
-                      onPress={()=>this.submit()}
+                      //onPress={()=>this.submit()}
                      // onPress={()=>this.getJsonData()}
-                     //onPress={()=>navigate('ImageCheck')}
+                     onPress={()=>navigate('Message')}
                      
 
                     style={{
@@ -509,10 +572,10 @@ export default class Home extends React.Component{
                     alignSelf:"center",
                     color:"#00716F",
                     //fontFamily:"SemiBold",
-                    paddingVertical:30
+                    paddingVertical:30,
+                    fontWeight:'bold',
                 }}>New User</Text> 
 
-               
             </View>
         )
     }

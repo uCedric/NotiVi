@@ -342,7 +342,8 @@ export default class Home extends React.Component{
             mail:'',
             password:'',
             emailError:'',
-            passwordError:''
+            passwordError:'',
+            navigation_state:''
         }
     }
 
@@ -367,7 +368,8 @@ export default class Home extends React.Component{
     submit(){
         let rjx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
         let isValid=rjx.test(this.state.mail)
-        console.warn(this.state)  
+        console.warn(this.state) 
+        var that = this 
         if(!isValid){
             this.setState({emailError:"email type is wrong"})
         }
@@ -386,15 +388,13 @@ export default class Home extends React.Component{
           })
         .then(function (response) {
           console.log(response.data);
+          that.setState({navigation_state:response.data})
           if (response.data == "email_inexist"){
-            print(response._response)
             alert("電子郵件不存在");
           }
           else if(response.data == "logined"){
             alert("成功登入");
-
-            navigate("Message");
-   
+            //#navigate("Message");  
           }
           else if(response.data == "fault"){
             alert("該電子郵件密碼錯誤");
@@ -455,11 +455,20 @@ export default class Home extends React.Component{
             this.setState({
                 password:text,
             })
+        }else if (field=='state'){
+            this.setState({
+                return_state:text,
+            })
         }
         
      }
+     check_state(){
+        if(this.state.navigation_state=='logined'){
+            this.props.navigation.navigate("Message")
+        }   
+     }
      
-
+    
 
     render(){
         const {navigate} = this.props.navigation
@@ -557,8 +566,11 @@ export default class Home extends React.Component{
                     
                     <Text  
                       //onPress={()=>this.submit()}
-                     // onPress={()=>this.getJsonData()}
-                     onPress={()=>navigate('Message')}
+                      //onPress={()=>this.getJsonData()}
+                     onPress={()=>{
+                        this.submit()                       
+                        setTimeout(() => this.check_state(),2000);    
+                     }}
                      
 
                     style={{

@@ -65,7 +65,7 @@ app.secret_key = 'secret'
 def reset_videos(user_name):
     #把舊影片刪除
     old_videos = os.listdir("../videos/")
-    for index,video in old_videos:
+    for video in old_videos:
         os.remove("../videos/"+video)
     #將使用者影片載下來
     all_files=storage.child("vedios").list_files()
@@ -105,7 +105,6 @@ def register_user():
         password = data.get('password').encode('utf-8')
         name = data.get('name')
         password = bcrypt.hashpw(password, bcrypt.gensalt())
-        resp = Response("")
 
         print(str(email))
         #hashed_password = bcrypt.generate_password_hash(password)

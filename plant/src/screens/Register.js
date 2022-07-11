@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text,View,Image, TextInput} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
+import axios from 'axios';
 //class based
 
  export default class Register extends React.Component{
@@ -10,7 +11,8 @@ import Icon from '@expo/vector-icons/AntDesign';
             mail:'',
             password:'',
             emailError:'',
-            passwordError:''
+            passwordError:'',
+            navigation_state:''
         }
     }
 
@@ -24,10 +26,10 @@ import Icon from '@expo/vector-icons/AntDesign';
         else{
             this.setState({emailError:""})
         }
-        axios.post("http://10.0.2.2:5000/login", 
+        axios.post("http://10.0.2.2:5000/register", 
             { 
               email : this.state.mail ,
-              password : this.state.password
+              password : this.state.password,
             },
             {
               headers:{
@@ -36,16 +38,12 @@ import Icon from '@expo/vector-icons/AntDesign';
           })
         .then(function (response) {
           console.log(response.data);
-          if (response.data == "email_inexist"){
-            print(response._response)
-            alert("電子郵件不存在");
+          if (response.data == "email_exist"){
+            print(response.data)
+            alert("電子郵件已註冊");
           }
-          else if(response.data == "logined"){
-            alert("成功登入");
-            navigate("Check");
-          }
-          else if(response.data == "fault"){
-            alert("該電子郵件密碼錯誤");
+          else {
+            alert("註冊成功")
           }
         })
         .catch(function (error) {
@@ -83,7 +81,11 @@ import Icon from '@expo/vector-icons/AntDesign';
         }
         
      }
-
+     check_state(){
+        if(this.state.navigation_state==''){
+            this.props.navigation.navigate("Home")
+        }   
+     }
     render(){
         const {navigate} = this.props.navigation
         return(
@@ -184,7 +186,10 @@ import Icon from '@expo/vector-icons/AntDesign';
                     borderRadius:23
                 }}>
                     <Text 
-                     onPress={()=>navigate('Home')}
+                     onPress={()=>{
+                        this.submit()                       
+                        setTimeout(() => this.check_state(),2000);
+                     }}
                     
                     style={{
                         color:"white",

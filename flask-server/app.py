@@ -191,14 +191,12 @@ def view_cli_info():
     
     return jsonify({"password": password})
 #修改會員資訊
-@app.route("/modify_cli_info", methods = ['PUSH'])
+@app.route("/modify_cli_info", methods = ['POST'])
 def modify_cli_info():
-    resp = Response("")
-    email = "teststorage3@gmail.com"
     data = request.get_json()
     password = data.get("password")
-    
-    doc_ref = db.collection('members').document(email)
+    email = data.get("email")
+    doc_ref = db.collection('members').document(email)#"77@gmail.com"
     doc_ref.update({
         "password" : password
     })

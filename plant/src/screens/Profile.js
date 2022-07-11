@@ -22,7 +22,8 @@ export default class Profile extends React.Component{
                     resizeMode="cover"
                     style={styles.image}>
                   <Text style={styles.instructions}>Please click the function below</Text>
-                  <TouchableOpacity 
+      
+      <TouchableOpacity 
         style={styles.button}
         onPress={()=>navigate('Check')}>
       <Text style={styles.buttonText}>View member information</Text>

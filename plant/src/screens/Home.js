@@ -326,6 +326,7 @@ import {Text,View,Image, TextInput,Alert,styles, BackHandler,ImageBackground} fr
 import Icon from '@expo/vector-icons/AntDesign';
 import { setBadgeCountAsync } from 'expo-notifications';
 import axios from 'axios';
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 
 
@@ -379,7 +380,7 @@ export default class Home extends React.Component{
         axios.post("http://10.0.2.2:5000/login", 
             { 
               email : this.state.mail ,
-              password : this.state.password
+              password : this.state.password,
             },
             {
               headers:{
@@ -394,7 +395,33 @@ export default class Home extends React.Component{
           }
           else if(response.data == "logined"){
             alert("成功登入");
-            //#navigate("Message");  
+            /*setStringValue = async (value) => {
+                try {
+                    await AsyncStorage.setItem('key', value)
+                } catch(e) {
+                    // save error
+                }
+                
+                console.log('Done.')
+                }*/
+            
+            AsyncStorage.setItem('name',that.state.mail).then(
+                ()=>{ //成功的操作
+                console.log("name儲存成功!");
+                },
+                );
+            AsyncStorage.getItem('name')
+            .then( 
+            (result)=> { 
+            if (result == null) {
+            return;
+            }
+            console.log("name:" + result);
+            })
+            //AsyncStorage.setItem('@app:email', that.state.mail); 
+            
+            //const item = AsyncStorage.getItem('@app:email')
+            //console.log(_getStorageValue('@app:email'));
           }
           else if(response.data == "fault"){
             alert("該電子郵件密碼錯誤");

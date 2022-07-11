@@ -87,7 +87,8 @@ export default function App() {
     // No permissions request is necessary for launching the image library
     axios.get("http://10.0.2.2:5000/download_video")
         .then(function (response) {
-          
+          console.log("test")
+          console.log(response)
         })
         .catch(function (error) {
           console.log(error);

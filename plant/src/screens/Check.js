@@ -137,7 +137,7 @@ export default class Check extends React.Component{
                      fontSize:35,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
-                     alignItems:"top"
+                     //alignItems:"top"
                  }}
                 >This is your account</Text>
 

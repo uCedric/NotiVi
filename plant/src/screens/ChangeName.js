@@ -50,7 +50,7 @@ export default class Modify extends React.Component{
      }
 
      updateValue(text, field){
-         if(field=='password'){
+        if(field=='password'){
             this.setState({
                 password:text,
             })}
@@ -82,9 +82,9 @@ export default class Modify extends React.Component{
                      //marginBottom:500
                      
                  }}  
-                >Modify your Password</Text>
+                >Modify your Name</Text>
 
-                <Text
+               <Text
                 style={{
                     //fontFamily:"SemiBold",
                     marginHorizontal:55,
@@ -94,18 +94,18 @@ export default class Modify extends React.Component{
                 }}
                 >
                 </Text>
+                
 
                 <Text
                     style={{
                      fontSize:15,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
-                     color:"yellow",
-                     //marginTop:-500
+                     color:"yellow"
                  }}
-                >Old Password:</Text>
+                >Enter your password:</Text>
 
-                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
+               <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
                 <View style={{
                     flexDirection:"row",
                     borderWidth:2,
@@ -118,113 +118,10 @@ export default class Modify extends React.Component{
                 
                     <TextInput 
                         secureTextEntry
-                        placeholder="Old password"
+                        placeholder="Password"
                         placeholderTextColor="#00716F"
                         onBlur={() => this.PasswordValid()}
                         onChangeText={(text) => this.updateValue(text, 'password')}
-                        style={{paddingHorizontal:10}}
-                    />
-                    
-
-                    {/* <Text
-                    style={{
-                     fontSize:15,
-                     //fontFamily:"SemiBold",
-                     alignSelf:"center",
-                 }}
-                >123456789</Text> */}
-
-                  
-
-                </View>
-                
-
-                    
-
-                
-                
-                <Text
-                    style={{
-                     fontSize:15,
-                     //fontFamily:"SemiBold",
-                     alignSelf:"center",
-                     marginTop:10,
-                     color:"yellow"
-                 }}
-                >New Password:</Text>
-
-                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
-                <View style={{
-                   //flexDirection:"row",
-                   borderWidth:2,
-                   borderColor:"#00716F",
-                   paddingVertical:5,
-                   marginHorizontal:50,
-                   backgroundColor:"white"
-                }}>
-                   
-                   <TextInput 
-                        secureTextEntry
-                        placeholder="New password"
-                        placeholderTextColor="#00716F"
-                        onBlur={() => this.PasswordValid()}
-                        onChangeText={(text) => this.updateValue(text, 'password')}
-                        style={{paddingHorizontal:10}}
-                    />
-                    
-
-                </View>
-                <Text></Text>
-                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
-                <View style={{
-                   // flexDirection:"row",
-                    borderWidth:2,
-                    borderColor:"#00716F",
-                    paddingVertical:5,
-                    marginHorizontal:50,
-                    backgroundColor:"white"
-                }}>
-                   
-                   <TextInput 
-                       secureTextEntry
-                       placeholder="Confirm password"
-                       placeholderTextColor="#00716F"
-                       onBlur={() => this.PasswordValid()}
-                       onChangeText={(text) => this.updateValue(text, 'password')}
-                       style={{paddingHorizontal:10}}
-                    />
-                    
-
-                </View>
-                <Text></Text>
-
-                {/* <Text
-                    style={{
-                     fontSize:15,
-                     //fontFamily:"SemiBold",
-                     alignSelf:"center",
-                     color:"yellow"
-                 }}
-                >Old Name:</Text>
-              
-               <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.nameError}</Text>
-
-                <View style={{
-                    flexDirection:"row",
-                    borderWidth:2,
-                    borderColor:"#00716F",
-                    paddingVertical:5,
-                    marginHorizontal:50,
-                    backgroundColor:"white"
-                }}>
-
-                
-                    <TextInput 
-                        secureTextEntry
-                        placeholder="Old name"
-                        placeholderTextColor="#00716F"
-                        onBlur={() => this.nameValid()}
-                        onChangeText={(text) => this.updateValue(text, 'name')}
                         style={{paddingHorizontal:10}}
                     />
                     
@@ -234,8 +131,11 @@ export default class Modify extends React.Component{
                   
 
                 </View>
-                
 
+                <Text></Text>
+
+
+                
                     
 
                 
@@ -250,28 +150,8 @@ export default class Modify extends React.Component{
                  }}
                 >New Name:</Text>
 
-                <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.nameError}</Text>
-                <View style={{
-                   //flexDirection:"row",
-                   borderWidth:2,
-                   borderColor:"#00716F",
-                   paddingVertical:5,
-                   marginHorizontal:50,
-                   backgroundColor:"white"
-                }}>
-                   
-                   <TextInput 
-                        secureTextEntry
-                        placeholder="New name"
-                        placeholderTextColor="#00716F"
-                        onBlur={() => this.NameValid()}
-                        onChangeText={(text) => this.updateValue(text, 'name')}
-                        style={{paddingHorizontal:10}}
-                    />
-                    
-
-                </View>
-                <Text></Text>
+               
+                
                 <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.nameError}</Text>
                 <View style={{
                    // flexDirection:"row",
@@ -284,7 +164,7 @@ export default class Modify extends React.Component{
                    
                    <TextInput 
                        secureTextEntry
-                       placeholder="Confirm name"
+                       placeholder="Name"
                        placeholderTextColor="#00716F"
                        onBlur={() => this.NameValid()}
                        onChangeText={(text) => this.updateValue(text, 'name')}
@@ -294,7 +174,7 @@ export default class Modify extends React.Component{
 
                 </View>
 
-               */}
+               
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image,StyleSheet,View,TouchableOpacity, Text,Button, Alert, ImageBackground} from 'react-native'
+import {Image,StyleSheet,View,TouchableOpacity, Text,Button, Alert, ImageBackground, BackHandler,NavigationActions} from 'react-native'
 //import LoginScreen from "react-native-login-screen"
 import * as ImagePicker from 'expo-image-picker'
 import Check from '../screens/Check'
@@ -8,13 +8,27 @@ import { render } from 'react-dom'
 
 
 export default class Profile extends React.Component{
+
+  
+   
+  
+
+
    render(){
     const {navigate} = this.props.navigation
+  
     const image = { uri: "https://designimages.appypie.com/appbackground/appbackground-65-nature-outdoors.jpg" };
     
+    
+   /*  navigation.reset({
+      index: 0,
+      routes: [{ name: 'Profile' }],
+    }); */
+   
 
     return(
-      
+     
+     
 
     <View style={styles.container}>
        <ImageBackground source ={require('../images/cloud.png')}
@@ -25,16 +39,17 @@ export default class Profile extends React.Component{
                   <TouchableOpacity 
         style={styles.button}
         onPress={()=>navigate('Check')}>
+      <Image source={require('../images/view.png')} resizeMode='contain' style={{height:50,width:27.5,marginBottom:-40}} />
       <Text style={styles.buttonText}>View member information</Text>
       </TouchableOpacity>
       <Text></Text>
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Modify')}>
         <Text style={styles.buttonText}>Edit member information</Text>
       </TouchableOpacity>
-      <Text></Text>
+      <Text></Text> */}
 
       <TouchableOpacity
         style={styles.button}
@@ -57,12 +72,25 @@ export default class Profile extends React.Component{
       </TouchableOpacity>
     
       <Text></Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={()=>navigate('Resources')}>
+        <Image source={require('../images/find.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
+        <Text style={styles.buttonText}>Other resources</Text>
+      </TouchableOpacity>
+      
+      <Text></Text>
 
       <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Home')}>
+         <Image source={require('../images/logout.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
         <Text style={styles.buttonText}>Log out</Text>
       </TouchableOpacity>   
+
+     
+      
+       
         </ImageBackground>
                 
       
@@ -104,10 +132,10 @@ export default class Profile extends React.Component{
       color: 'black',
       fontSize: 30,
       marginHorizontal: 15,
-      marginBottom: 65,
+      marginBottom: 20,
       textAlign: "center",
       fontWeight:"bold",
-      color:"purple"
+      color:"yellow"
     },
 
     button:{
@@ -115,7 +143,19 @@ export default class Profile extends React.Component{
         borderWidth:2, 
         borderColor:'black',
         justifyContent: 'center',
-        padding:10
+        padding:10,
+        //marginVertical:5,
+        
+        
+    },
+    buttons:{
+      backgroundColor: 'white', 
+      borderWidth:2, 
+      borderColor:'black',
+      justifyContent: 'center',
+      padding:10,
+      marginBottom:400
+     
     },
 
     buttonText:{

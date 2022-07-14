@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     padding:20,
     borderRadius:23,
     marginBottom:-750
+    //marginBottom:-550
 },
 
 buttonText:{

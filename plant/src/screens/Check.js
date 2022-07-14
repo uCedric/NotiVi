@@ -6,7 +6,7 @@ import Icon from '@expo/vector-icons/AntDesign';
 export default class Check extends React.Component{
     
     render(){
-
+        const {navigate} = this.props.navigation
         return(
             <View style={{height:"100%"}}>
                 <ImageBackground source ={require('../images/background.jpeg')}
@@ -20,12 +20,22 @@ export default class Check extends React.Component{
                      fontSize:35,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
-                     alignItems:"top"
+                     alignItems:"top",
+                    // flex:1,
+                     //marginTop:80
                  }}
                 >This is your account</Text>
+              
+              <Text></Text>
 
+            <Text style={{
+                     fontSize:15,
+                     alignSelf:"center",
+                     color:"yellow",
+                     
+                 }}>Emial</Text>
             <View style={{
-                    flexDirection:"row",
+                    /* flexDirection:"row",
                     alignItems:"center",
                     marginHorizontal:55,
                     borderWidth:2,
@@ -33,10 +43,16 @@ export default class Check extends React.Component{
                     paddingHorizontal:10,
                     borderColor:"#00716F",
                     borderRadius:23,
-                    paddingVertical:2,
+                    paddingVertical:3,
+                    backgroundColor:"white" */
+                    flexDirection:"row",
+                    borderWidth:2,
+                    borderColor:"#00716F",
+                    paddingVertical:5,
+                    marginHorizontal:50,
                     backgroundColor:"white"
                 }}>
-                    <Icon name="mail" color="#00716F" size={24}/>
+                    
                     <Text
                     style={{
                      fontSize:15,
@@ -45,22 +61,26 @@ export default class Check extends React.Component{
                  }}
                 >abcdefgh@gmail.com</Text>
 
-                    
-
+               
+  
                 </View>
+
+                <Text></Text>
+                    <Text style={{
+                        fontSize:15,
+                        alignSelf:"center",
+                        color:"yellow",
+                        
+                    }}>Password</Text>
                 <View style={{
                     flexDirection:"row",
-                    alignItems:"center",
-                    marginHorizontal:55,
                     borderWidth:2,
-                    marginTop:15,
-                    paddingHorizontal:10,
                     borderColor:"#00716F",
-                    borderRadius:23,
-                    paddingVertical:2,
+                    paddingVertical:5,
+                    marginHorizontal:50,
                     backgroundColor:"white"
                 }}>
-                    <Icon name="mail" color="#00716F" size={24}/>
+                    
                     <Text
                      style={{
                      fontSize:15,
@@ -68,12 +88,60 @@ export default class Check extends React.Component{
                      alignSelf:"center",
                  }}
                 >。。。。。。</Text>
-                
-
+              </View>
+             
+              <Text></Text>
+                    <Text style={{
+                        fontSize:15,
+                        alignSelf:"center",
+                        color:"yellow",
+                        
+                    }}>Name</Text>
+              <View style={{
+                    flexDirection:"row",
+                    borderWidth:2,
+                    borderColor:"#00716F",
+                    paddingVertical:5,
+                    marginHorizontal:50,
+                    backgroundColor:"white"
+                }}>
                     
+                    <Text
+                     style={{
+                     fontSize:15,
+                     //fontFamily:"SemiBold",
+                     alignSelf:"center",
+                 }}
+                >aaaaaa</Text>
+           
+           </View>
 
-                </View>
+           <Text 
+                
+                onPress={()=>navigate('Modify')}
+                
+                style={{
+                    alignSelf:"center",
+                    color:"#00716F",
+                    //fontFamily:"SemiBold",
+                    paddingVertical:30,
+                    fontWeight:'bold',
+                }}>Modify your password</Text> 
 
+           <Text 
+                
+                onPress={()=>navigate('ChangeName')}
+                
+                style={{
+
+                    alignSelf:"center",
+                    color:"#00716F",
+                    //fontFamily:"SemiBold",
+                    paddingVertical:30,
+                    fontWeight:'bold',
+                }}>Modify your Name</Text> 
+
+            
                 
 
 

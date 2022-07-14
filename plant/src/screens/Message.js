@@ -34,7 +34,7 @@ Notification.setNotificationHandler({
 });
 
 export default function App() {
-  useEffect(() => {
+   useEffect(() => {
     Permission.getAsync(Permission.NOTIFICATIONS)
       .then((response) => {
         if (response.status !== "granted") {
@@ -76,7 +76,7 @@ export default function App() {
         { text: "OK", onPress: () => console.log("OK Pressed") }
     ]
     );
-
+ 
 
   const [image, setImage] = useState(null);
   
@@ -98,9 +98,17 @@ export default function App() {
     }
   }
 
-    
+ 
+ 
+
+ 
   
-  return (
+  //render(){
+   
+    
+
+
+   return (
     
 
     <View style = {{height:"100%"}}>
@@ -109,8 +117,13 @@ export default function App() {
                     resizeMode="cover"
                     style={styles.image}>
             
-   <Text style ={{fontSize:30, color:"yellow", fontWeight: "bold", textAlign: 'center', flex: 1,
-                  textAlignVertical:'top', marginTop:80}}>Welcome to our Home</Text>
+   <Text style ={{color: 'black',
+      fontSize: 30,
+      marginHorizontal: 15,
+      marginBottom: 80,
+      textAlign: "center",
+      fontWeight:"bold",
+      color:"yellow"}}>Welcome to our Home</Text>
 
 
             
@@ -124,31 +137,39 @@ export default function App() {
      <Text></Text>
 
       <TouchableOpacity
-        style={styles.buttons}
+        style={styles.button}
         onPress={pickImage} >
          <Image source={require('../images/eye.png')} resizeMode='contain' style={{height:50,width:40 ,marginBottom:-40}} />
         <Text style={styles.buttonText}>Check the images and videos</Text>
       </TouchableOpacity>
 
+      <Text></Text>
+
+      
+
       
 
       
         
-        <Text style={{fontSize: 20, color: 'yellow',textAlign: "center"}}>Go check more function in Profile↓↓</Text>
+       
       
     
       
-
-      
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
 
       
      
+
       
+     
+     <Text style={{fontSize: 20, color: 'yellow',textAlign: "center" , fontWeight:"bold",}}>Go check more function in Profile↓↓</Text>
     
     </ImageBackground>
+   
     </View>
-  );
+    
+  ); 
+//}
+   
 }
 
 const styles = StyleSheet.create({

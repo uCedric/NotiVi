@@ -5,10 +5,13 @@ import * as Notification from "expo-notifications";
 import * as Permission from "expo-permissions";
 import * as ImagePicker from 'expo-image-picker';
 import { render } from "react-dom";
-
-
+import { Linking } from 'react-native';
 
 export default class Resources extends React.Component{ 
+  phonecall = () =>{
+    const url='tel:110'
+    Linking.openURL(url)
+}
   render(){
     const {navigate} = this.props.navigation
   return (
@@ -32,7 +35,7 @@ export default class Resources extends React.Component{
             
     <TouchableOpacity
         style={styles.button}
-        >
+        onPress={this.phonecall}>
         <Image source={require('../images/police.png')} resizeMode='contain' style={{height:40,width:40 ,marginBottom:-40}} />
         <Text style={styles.buttonText}>報警</Text>
       </TouchableOpacity> 

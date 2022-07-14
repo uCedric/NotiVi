@@ -21,7 +21,7 @@ export default class Check extends React.Component{
                      fontSize:35,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
-                     alignItems:"top",
+                     alignItems:"stretch",
                     // flex:1,
                      //marginTop:80
                  }}
@@ -34,7 +34,7 @@ export default class Check extends React.Component{
                      alignSelf:"center",
                      color:"yellow",
                      
-                 }}>Emial</Text>
+                 }}>Email</Text>
             <View style={{
                     /* flexDirection:"row",
                     alignItems:"center",

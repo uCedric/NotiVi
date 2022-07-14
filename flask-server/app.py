@@ -189,7 +189,9 @@ def logout():
 @app.route("/view_cli_info", methods = ['GET'])
 def view_cli_info():
     resp = Response("")
-    email = "teststorage3@gmail.com"
+    if request.method == 'GET':
+        data = request.get_json()
+        email = data.get('email')
 
     doc_ref = db.collection('members')
     docs = doc_ref.get()

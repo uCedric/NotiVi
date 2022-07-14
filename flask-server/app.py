@@ -16,6 +16,7 @@ from firebase_admin import storage as admin_storage
 from firebase_admin import credentials
 from werkzeug.utils import secure_filename
 from io import BytesIO
+import time
 #from requests import request, session
 #pip install Flask-Mail
 
@@ -43,7 +44,7 @@ config={
     'databaseURL':""
 }"""
 #照片檔的檢查
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','avi'])
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 #firebase 應用程式連線
@@ -65,7 +66,7 @@ app.secret_key = 'secret'
 def reset_videos(user_name):
     #把舊影片刪除
     old_videos = os.listdir("../videos/")
-    for index,video in old_videos:
+    for video in old_videos:
         os.remove("../videos/"+video)
     #將使用者影片載下來
     all_files=storage.child("vedios").list_files()
@@ -78,6 +79,18 @@ def reset_videos(user_name):
                 num+=1 
     num=0 
     return "finished"
+#上傳影片到firebase
+def upload_file():
+    videos = os.listdir("../videos/")
+    local_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
+    try:
+        for index,videoName in enumerate(videos): 
+            print(videoName)
+            fileUrl = "../videos/"+videoName
+            cloudfilename = "videos/user1/"+local_time+"/"+videoName
+            storage.child(cloudfilename).put(fileUrl)           
+    except:
+        print("couldn't upload vedios TAT...")
 
 @app.route('/', methods=['POST','GET'])
 def home():
@@ -105,7 +118,6 @@ def register_user():
         password = data.get('password').encode('utf-8')
         name = data.get('name')
         password = bcrypt.hashpw(password, bcrypt.gensalt())
-        resp = Response("")
 
         print(str(email))
         #hashed_password = bcrypt.generate_password_hash(password)
@@ -192,44 +204,41 @@ def view_cli_info():
     
     return jsonify({"password": password})
 #修改會員資訊
-@app.route("/modify_cli_info", methods = ['PUSH'])
+@app.route("/modify_cli_info", methods = ['POST'])
 def modify_cli_info():
-    resp = Response("")
-    email = "teststorage3@gmail.com"
     data = request.get_json()
     password = data.get("password")
-    
-    doc_ref = db.collection('members').document(email)
+    email = data.get("email")
+    doc_ref = db.collection('members').document(email)#"77@gmail.com"
     doc_ref.update({
         "password" : password
     })
     
     return jsonify({"password": password})
-
-    return resp
 #上傳檔案
-@app.route('/upload_pic', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_pic():
-	# check if the post request has the file part
-	if 'file' not in request.files:
-		resp = jsonify({'message' : 'No file part in the request'})
-		resp.status_code = 400
-		return resp
-	file = request.files['file']
-	if file.filename == '':
-		resp = jsonify({'message' : 'No file selected for uploading'})
-		resp.status_code = 400
-		return resp
-	if file and allowed_file(file.filename):
-		filename = secure_filename(file.filename)
-		#file.save(os.path.join(app.config['../videos'], filename))
-		resp = jsonify({'message' : 'File successfully uploaded'})
-		resp.status_code = 201
-		return resp
-	else:
-		resp = jsonify({'message' : 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
-		resp.status_code = 400
-		return resp
+    # check if the post request has the file part
+    if 'file' not in request.files:
+        resp = jsonify({'message' : 'No file part in the request'})
+        resp.status_code = 400
+        return resp
+    file = request.files['file']	
+    if file.filename == '':
+        resp = jsonify({'message' : 'No file selected for uploading'})
+        resp.status_code = 400
+        return resp
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save('../videos/'+filename)#os.path.join()
+        upload_file()
+        resp = jsonify({'message' : 'File successfully uploaded'})
+        resp.status_code = 201
+        return resp
+    else:
+        resp = jsonify({'message' : 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
+        resp.status_code = 400
+        return resp
 #檢視影片
 @app.route('/download_video',methods=['GET'])
 def download_video():

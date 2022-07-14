@@ -23,6 +23,7 @@ import * as Notification from "expo-notifications";
 import * as Permission from "expo-permissions";
 import * as ImagePicker from 'expo-image-picker';
 import { render } from "react-dom";
+import axios from 'axios';
 
 Notification.setNotificationHandler({
   handleNotification: async () => {
@@ -84,6 +85,14 @@ export default function App() {
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
+    axios.get("http://10.0.2.2:5000/download_video")
+        .then(function (response) {
+          console.log("test")
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,

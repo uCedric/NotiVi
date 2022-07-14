@@ -326,6 +326,7 @@ import {Text,View,Image, TextInput,Alert,styles, BackHandler,ImageBackground} fr
 import Icon from '@expo/vector-icons/AntDesign';
 import { setBadgeCountAsync } from 'expo-notifications';
 import axios from 'axios';
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 
 
@@ -342,7 +343,8 @@ export default class Home extends React.Component{
             mail:'',
             password:'',
             emailError:'',
-            passwordError:''
+            passwordError:'',
+            navigation_state:''
         }
     }
 
@@ -367,7 +369,8 @@ export default class Home extends React.Component{
     submit(){
         let rjx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
         let isValid=rjx.test(this.state.mail)
-        console.warn(this.state)  
+        console.warn(this.state) 
+        var that = this 
         if(!isValid){
             this.setState({emailError:"email type is wrong"})
         }
@@ -377,7 +380,7 @@ export default class Home extends React.Component{
         axios.post("http://10.0.2.2:5000/login", 
             { 
               email : this.state.mail ,
-              password : this.state.password
+              password : this.state.password,
             },
             {
               headers:{
@@ -386,15 +389,39 @@ export default class Home extends React.Component{
           })
         .then(function (response) {
           console.log(response.data);
+          that.setState({navigation_state:response.data})
           if (response.data == "email_inexist"){
-            print(response._response)
             alert("電子郵件不存在");
           }
           else if(response.data == "logined"){
             alert("成功登入");
-
-            navigate("Message");
-   
+            /*setStringValue = async (value) => {
+                try {
+                    await AsyncStorage.setItem('key', value)
+                } catch(e) {
+                    // save error
+                }
+                
+                console.log('Done.')
+                }*/
+            
+            AsyncStorage.setItem('name',that.state.mail).then(
+                ()=>{ //成功的操作
+                console.log("name儲存成功!");
+                },
+                );
+            AsyncStorage.getItem('name')
+            .then( 
+            (result)=> { 
+            if (result == null) {
+            return;
+            }
+            console.log("name:" + result);
+            })
+            //AsyncStorage.setItem('@app:email', that.state.mail); 
+            
+            //const item = AsyncStorage.getItem('@app:email')
+            //console.log(_getStorageValue('@app:email'));
           }
           else if(response.data == "fault"){
             alert("該電子郵件密碼錯誤");
@@ -455,11 +482,20 @@ export default class Home extends React.Component{
             this.setState({
                 password:text,
             })
+        }else if (field=='state'){
+            this.setState({
+                return_state:text,
+            })
         }
         
      }
+     check_state(){
+        if(this.state.navigation_state=='logined'){
+            this.props.navigation.navigate("Message")
+        }   
+     }
      
-
+    
 
     render(){
         const {navigate} = this.props.navigation
@@ -557,8 +593,11 @@ export default class Home extends React.Component{
                     
                     <Text  
                       //onPress={()=>this.submit()}
-                     // onPress={()=>this.getJsonData()}
-                     onPress={()=>navigate('Message')}
+                      //onPress={()=>this.getJsonData()}
+                     onPress={()=>{
+                        this.submit()                       
+                        setTimeout(() => this.check_state(),2000);    
+                     }}
                      
 
                     style={{

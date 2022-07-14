@@ -21,6 +21,7 @@ import random
 import os
 import time
 from flask import Flask,jsonify
+from sys import exit as sys_exit 
 firebaseConfig={
     "apiKey": "AIzaSyBxID4_kAxePegIf4hav5XU2J6dY2wtsr0",
     "authDomain": "fightiden.firebaseapp.com",
@@ -33,7 +34,7 @@ firebaseConfig={
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
-img_list = os.listdir("./videos/")
+img_list = os.listdir("../project/videos/")
 total_len = len(img_list)
 #randomlist = random.sample(range(0,total_len), 5000)
 #store_imgs = [img_list[item] for item in randomlist]
@@ -120,13 +121,13 @@ def pred_fight(model,video,acuracy):
 
 def upload_file():
     local_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
-    print(local_time)
+    print(total_len)
     try:
         for index,imgName in enumerate(img_list): 
-            fileUrl = "./videos/"+imgName
+            print(imgName)
+            fileUrl = "../project/videos/"+imgName
             cloudfilename = "videos/user1/"+local_time+"/"+imgName
-            storage.child(cloudfilename).put(fileUrl)
-    
+            storage.child(cloudfilename).put(fileUrl)           
     except:
         print("couldn't upload vedios TAT...")
 
@@ -150,7 +151,6 @@ def start_the_iden():
   
         # describe the type of font
         # to be used.
-        
         cv2.imshow('video', frame)
     
         if i > 29:
@@ -160,12 +160,6 @@ def start_the_iden():
             if predaction[0] == True:
                 status=1
                 print('Violance detacted here ...')
-                fourcc = cv2.VideoWriter_fourcc(*'XVID')
-                vio = cv2.VideoWriter("./videos/output-"+str(j)+".avi", fourcc, 10.0, (fwidth,fheight))
-                #vio = cv2.VideoWriter("./videos/output-"+str(j)+".mp4", cv2.VideoWriter_fourcc(*'mp4v'), 10, (300, 400))
-                for frameinss in old:
-                    vio.write(frameinss)
-                vio.release()
             else:
                 status=0
             i = 0
@@ -185,6 +179,12 @@ def start_the_iden():
         
             i+=1
         frame = status_check(status,frame)
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        vio = cv2.VideoWriter("../project/videos/output-"+str(j)+".avi", fourcc, 10.0, (fwidth,fheight))
+        #vio = cv2.VideoWriter("./videos/output-"+str(j)+".mp4", cv2.VideoWriter_fourcc(*'mp4v'), 10, (300, 400))
+        for frameinss in old:
+            vio.write(frameinss)
+        vio.release()
         cv2.imshow('video', frame)
   
 
@@ -207,5 +207,6 @@ def start():
     return jsonify({"result":"finished"})
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
+    sys_exit(1)
     

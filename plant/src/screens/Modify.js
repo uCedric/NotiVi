@@ -1,12 +1,15 @@
 import React from 'react';
 import {Text,View,Image, TextInput, ImageBackground, StyleSheet} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
+import axios from 'axios';
+
 //class based
 
 export default class Modify extends React.Component{
     constructor(){
         super();
         this.state={
+            mail:'',
             password:'',
             passwordError:'',
             name:'',
@@ -15,8 +18,30 @@ export default class Modify extends React.Component{
     }
 
     submit(){
-        console.warn(this.state)  
-        axios.post("http://10.0.2.2:5000/login", 
+        var that = this 
+        
+       
+        
+            console.log(this.state)     
+        setTimeout(() => axios.post("http://10.0.2.2:5000/modify_cli_info", 
+        { 
+          email : this.state.mail ,
+          password : this.state.password
+        },
+        {
+          headers:{
+          "Content-Type": "application/json"
+        }
+        })
+        .then(function (response){
+            console.log("測試:")
+            console.log(that.state.mail)
+        })
+        .catch(function (error) {
+            console.log(error);
+        }),3000);
+        
+        /*axios.post("http://10.0.2.2:5000/modify_cli_info", 
             { 
               email : this.state.mail ,
               password : this.state.password
@@ -26,9 +51,14 @@ export default class Modify extends React.Component{
               "Content-Type": "application/json"
             }
           })
+          .then(function (response){
+            console.log("測試:")
+            console.log(that.state.mail)
+          })
         .catch(function (error) {
           console.log(error);
-        });
+        });*/
+        
     }
 
     PasswordValid(){
@@ -66,7 +96,7 @@ export default class Modify extends React.Component{
 
 
     render(){
-        
+        const {navigate} = this.props.navigation
         return(
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
                 <ImageBackground source ={require('../images/background.jpeg')}
@@ -310,8 +340,14 @@ export default class Modify extends React.Component{
                     <Text style={{
                         color:"white",
                        // fontFamily:"SemiBold"
-                    }}>Save</Text>
-                </View> 
+
+                    }}
+                 
+
+                  
+                   onPress={()=>{this.submit();navigate('Home')}}>Save</Text>
+                </View>
+
                 </ImageBackground>
             </View>
         )

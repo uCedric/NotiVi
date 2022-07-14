@@ -36,7 +36,8 @@ export default class Profile extends React.Component{
                     resizeMode="cover"
                     style={styles.image}>
                   <Text style={styles.instructions}>Please click the function below</Text>
-                  <TouchableOpacity 
+      
+      <TouchableOpacity 
         style={styles.button}
         onPress={()=>navigate('Check')}>
       <Image source={require('../images/view.png')} resizeMode='contain' style={{height:50,width:27.5,marginBottom:-40}} />

@@ -26,7 +26,7 @@ import axios from 'axios';
         else{
             this.setState({emailError:""})
         }
-        axios.post("http://10.0.2.2:5000/register", 
+        axios.post("https://flask-server-7-15.herokuapp.com/register", 
             { 
               email : this.state.mail ,
               password : this.state.password,

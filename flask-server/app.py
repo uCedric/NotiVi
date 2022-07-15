@@ -94,19 +94,7 @@ def upload_file():
 
 @app.route('/', methods=['POST','GET'])
 def home():
-    if ('user' in session):
-        print(session['user'])
-        return 'Hi,{}'.format(session['user'])
-    if request.method == 'POST':
-        email = request.form.get('email')
-        password = request.form.get('password')
-        try:
-            user = auth.sign_in_with_email_and_password(email,password)
-            session['user'] = email
-            print(session['user'])
-        except:
-            return 'Failed to login'
-    return render_template('home.html')
+    return jsonify({"result":"connected"})
 
 #註冊
 @app.route("/register", methods=["POST"])     #註冊帳號

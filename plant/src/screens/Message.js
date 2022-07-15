@@ -85,10 +85,11 @@ export default function App() {
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
-    axios.get("http://10.0.2.2:5000/download_video")
+    axios.get("https://flask-server-7-15.herokuapp.com/download_video")
         .then(function (response) {
           console.log("test")
           console.log(response)
+          console.warn(response)
         })
         .catch(function (error) {
           console.log(error);

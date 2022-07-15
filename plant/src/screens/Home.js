@@ -329,10 +329,8 @@ import axios from 'axios';
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 
-
     
 
-    
 
 export default class Home extends React.Component{
      
@@ -377,7 +375,7 @@ export default class Home extends React.Component{
         else{
             this.setState({emailError:""})
         }
-        axios.post("http://10.0.2.2:5000/login", 
+        axios.post("https://flask-server-7-15.herokuapp.com/login", //http://10.0.2.2:5000/loginhttps://dashboard.heroku.com/apps/flask-server-7-15/login
             { 
               email : this.state.mail ,
               password : this.state.password,

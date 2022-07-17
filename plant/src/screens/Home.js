@@ -403,12 +403,17 @@ export default class Home extends React.Component{
                 console.log('Done.')
                 }*/
             
-            AsyncStorage.setItem('name',that.state.mail).then(
+            AsyncStorage.setItem('email',that.state.mail).then(
                 ()=>{ //成功的操作
-                console.log("name儲存成功!");
+                console.log("email儲存成功!");
                 },
                 );
-            AsyncStorage.getItem('name')
+            AsyncStorage.setItem('password',that.state.password).then(
+                ()=>{ //成功的操作
+                console.log("password儲存成功!");
+                },
+                );
+            AsyncStorage.getItem('email')
             .then( 
             (result)=> { 
             if (result == null) {

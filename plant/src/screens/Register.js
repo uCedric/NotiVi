@@ -10,6 +10,7 @@ import axios from 'axios';
         this.state={
             mail:'',
             password:'',
+            name:'',
             emailError:'',
             passwordError:'',
             navigation_state:''
@@ -68,6 +69,17 @@ import axios from 'axios';
             this.setState({passwordError:""})
         }
      }
+  
+    NameValid(){
+        if(this.state.name ==""){
+            this.setState({nameError:"name field can not be empty"})
+        }
+        else{
+            this.setState({nameError:""})
+        }
+     }
+
+  
 
      updateValue(text, field){
         if(field=='mail'){
@@ -77,6 +89,11 @@ import axios from 'axios';
         }else if(field=='password'){
             this.setState({
                 password:text,
+            })
+        }
+       else if(field=='name'){
+            this.setState({
+                name:text,
             })
         }
         
@@ -102,6 +119,37 @@ import axios from 'axios';
                  }}  
                 >Register now!!</Text>
 
+
+                 <Text
+                style={{
+                    
+                }}
+                >
+                </Text>
+                <Text style={{color:'red', marginLeft:60, fontSize:15, }}>{this.state.nameError}</Text>
+                <View style={{
+                    borderWidth:2,
+                    borderColor:"#00716F",
+                    paddingVertical:5,
+                    marginHorizontal:50
+                }}>
+                    
+                    <TextInput 
+                        placeholder="Name"
+                        placeholderTextColor="#00716F"
+                        onBlur={() => this.NameValid()}
+                        onChangeText={(text) => this.updateValue(text, 'name')}
+                        style={{paddingHorizontal:10}}
+                    />
+
+                
+                </View>
+
+
+
+
+
+ 
                 <Text
                 style={{
                     

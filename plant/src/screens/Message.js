@@ -127,7 +127,7 @@ export default function App() {
     <TouchableOpacity
         style={styles.button}
         onPress={handleNotification}>
-        <Image source={require('../images/bell.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
+        <Image source={require('../images/notification.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
         <Text style={styles.buttonText}>Notification</Text>
       </TouchableOpacity> 
      
@@ -136,7 +136,7 @@ export default function App() {
       <TouchableOpacity
         style={styles.button}
         onPress={pickImage} >
-         <Image source={require('../images/eye.png')} resizeMode='contain' style={{height:50,width:40 ,marginBottom:-40}} />
+         <Image source={require('../images/video.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
         <Text style={styles.buttonText}>Videos</Text>
       </TouchableOpacity>
 

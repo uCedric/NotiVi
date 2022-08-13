@@ -144,8 +144,8 @@ const BottomTabNavigator = () => {
                     tabBarLabel:"",
                     tabBarIcon:({color, size}) => (
                         <Image
-                            source={require("../images/9.png")}
-                            style={{ height:20, width:20 }}
+                            source={require("../images/home.png")}
+                            style={{ height:30, width:30 }}
                         />
                     )
                 }}
@@ -157,8 +157,8 @@ const BottomTabNavigator = () => {
                     tabBarLabel:"",
                     tabBarIcon:({color, size}) => (
                         <Image
-                            source={require("../images/10.png")}
-                            style={{ height:20, width:20 }}
+                            source={require("../images/user.png")}
+                            style={{ height:30, width:30 }}
                         />
                     )
                 }}

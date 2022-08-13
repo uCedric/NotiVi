@@ -131,24 +131,11 @@ const BottomTabNavigator = () => {
                     height:65,
                     justifyContent:"center",
                     paddingVertical:15,
-                    backgroundColor:"#eff4f0",
+                    backgroundColor:"#0abab5",
                     elevation:2
                 }
             }}
         >
-           {/*  <Tab.Screen
-                name="Home"
-                component={Home}
-                options={{
-                    tabBarLabel:"",
-                    tabBarIcon:({color, size}) => (
-                        <Image
-                            source={require("../images/8.png")}
-                            style={{ height:20, width:20 }}
-                        />
-                    )
-                }}
-            /> */}
 
             <Tab.Screen
                 name="Message"

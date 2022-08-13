@@ -121,27 +121,14 @@ export default function App() {
    return (
     
 
-    <View style = {{height:"100%"}}>
-                <ImageBackground source ={require('../images/cloud.png')}
-                   // sty={{height:"100%"}}
-                    resizeMode="cover"
-                    style={styles.image}>
-            
-   <Text style ={{color: 'black',
-      fontSize: 30,
-      marginHorizontal: 15,
-      marginBottom: 80,
-      textAlign: "center",
-      fontWeight:"bold",
-      color:"yellow"}}>Welcome to our Home</Text>
-
-
-            
+    <View style = {styles.container}>
+      
+ 
     <TouchableOpacity
         style={styles.button}
         onPress={handleNotification}>
         <Image source={require('../images/bell.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
-        <Text style={styles.buttonText}>Open Notification</Text>
+        <Text style={styles.buttonText}>Notification</Text>
       </TouchableOpacity> 
      
      <Text></Text>
@@ -150,31 +137,10 @@ export default function App() {
         style={styles.button}
         onPress={pickImage} >
          <Image source={require('../images/eye.png')} resizeMode='contain' style={{height:50,width:40 ,marginBottom:-40}} />
-        <Text style={styles.buttonText}>Check the images and videos</Text>
+        <Text style={styles.buttonText}>Videos</Text>
       </TouchableOpacity>
 
-      <Text></Text>
-
       
-
-      
-
-      
-        
-       
-      
-    
-      
-
-      
-     
-
-      
-     
-     <Text style={{fontSize: 20, color: 'yellow',textAlign: "center" , fontWeight:"bold",}}>Go check more function in Profile↓↓</Text>
-    
-    </ImageBackground>
-   
     </View>
     
   ); 
@@ -185,17 +151,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     justifyContent: "center",
     
   },
   button:{
-    backgroundColor: 'white', 
+    backgroundColor: '#0abab5', 
     borderWidth:2, 
     borderColor:'black',
     justifyContent: 'center',
     padding:10,
-    
+    borderRadius:15,
+    marginHorizontal:50
    
   },
   buttons:{

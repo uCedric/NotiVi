@@ -31,16 +31,17 @@ export default class Profile extends React.Component{
      
 
     <View style={styles.container}>
-       <ImageBackground source ={require('../images/cloud.png')}
+                {/*<ImageBackground source ={require('../images/cloud.png')}
                     //styles={{width:"200%",height:"100%"}}
                     resizeMode="cover"
-                    style={styles.image}>
+                    style={styles.image}>*/}
+                   
                   <Text style={styles.instructions}>Please click the function below</Text>
       
       <TouchableOpacity 
         style={styles.button}
         onPress={()=>navigate('Check')}>
-      <Image source={require('../images/view.png')} resizeMode='contain' style={{height:50,width:27.5,marginBottom:-40}} />
+      <Image source={require('../images/eye.png')} resizeMode='contain' style={{height:50,width:27.5,marginBottom:-40}} />
       <Text style={styles.buttonText}>View member information</Text>
       </TouchableOpacity>
       <Text></Text>
@@ -52,12 +53,12 @@ export default class Profile extends React.Component{
       </TouchableOpacity>
       <Text></Text> */}
 
-      <TouchableOpacity
+      {/*<TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Time')}>
         <Text style={styles.buttonText}>Switch setting</Text>
       </TouchableOpacity>
-      <Text></Text>
+    <Text></Text>*/}
 
      {/*  <TouchableOpacity
         onPress={openImagePickerAsync}
@@ -66,17 +67,17 @@ export default class Profile extends React.Component{
       </TouchableOpacity>
       <Text></Text> */}
 
-      <TouchableOpacity
+      {/*<TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('TimeSet')}>
         <Text style={styles.buttonText}>Time Setting</Text>
-      </TouchableOpacity>
+    </TouchableOpacity>*/}
     
       <Text></Text>
       <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Resources')}>
-        <Image source={require('../images/find.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
+        <Image source={require('../images/resource.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
         <Text style={styles.buttonText}>Other resources</Text>
       </TouchableOpacity>
       
@@ -92,10 +93,10 @@ export default class Profile extends React.Component{
      
       
        
-        </ImageBackground>
+     
                 
       
-       
+       {/*</ImageBackground>*/}
       
       
     </View>
@@ -127,25 +128,27 @@ export default class Profile extends React.Component{
     logo: {
       width: 400,
       height: 300,
-      marginBottom: 20,
+      marginBottom: 10,
     },
     instructions: {
       color: 'black',
       fontSize: 30,
       marginHorizontal: 15,
-      marginBottom: 20,
+      marginTop:150,
+      marginBottom: 10,
       textAlign: "center",
       fontWeight:"bold",
-      color:"yellow"
+      color:"#0abab5"
     },
 
     button:{
-        backgroundColor: 'white', 
+        backgroundColor: '#0abab5', 
         borderWidth:2, 
-        borderColor:'black',
+        borderColor:'white',
         justifyContent: 'center',
         padding:10,
-        //marginVertical:5,
+        borderRadius:15,
+        marginHorizontal:50,
         
         
     },
@@ -176,8 +179,9 @@ export default class Profile extends React.Component{
       lineHeight: 84,
       fontWeight: "bold",
       textAlign: "center",
-      backgroundColor: "#000000c0",
-      justifyContent: "center"
+      backgroundColor: "black",
+      justifyContent: "center",
+      marginBottom:20
     }
 });
 
@@ -187,4 +191,3 @@ export default class Profile extends React.Component{
  
 
 //export default Profile;
-

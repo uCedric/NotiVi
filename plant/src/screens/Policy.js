@@ -14,11 +14,10 @@ export default function App() {
   return (
     
 
-    <View style={styles.container}>
-                <ImageBackground source ={require('../images/cloud.png')}
-                   // sty={{height:"100%"}}
-                    resizeMode="cover"
-                    style={styles.image}>
+    <View style={{backgroundColor:"#FFF",height:"100%"}}>
+    <Image source ={require('../images/logo.png')}
+        style={{width:"100%",height:"50%"}}
+        resizeMode="cover"/>
             
    <Text style={styles.texts}
       onPress={() => Linking.openURL('https://dep.mohw.gov.tw/DOPS/np-1156-105.html')}
@@ -46,26 +45,6 @@ export default function App() {
 
     
     
-
-
-  
-            
-   
-      
-        
-        
-      
-    
-      
-
-      
-      
-
-      
-     
-      
-    
-    </ImageBackground>
     </View>
   );
 }
@@ -89,7 +68,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: "center",
     fontWeight:"bold",
-    color:"yellow"
+    color:"#0abab5"
   },
   
 

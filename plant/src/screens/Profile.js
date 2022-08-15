@@ -17,7 +17,7 @@ export default class Profile extends React.Component{
    render(){
     const {navigate} = this.props.navigation
   
-    const image = { uri: "https://designimages.appypie.com/appbackground/appbackground-65-nature-outdoors.jpg" };
+    //const image = { uri: "https://designimages.appypie.com/appbackground/appbackground-65-nature-outdoors.jpg" };
     
     
    /*  navigation.reset({
@@ -30,64 +30,36 @@ export default class Profile extends React.Component{
      
      
 
-    <View style={styles.container}>
-                {/*<ImageBackground source ={require('../images/cloud.png')}
-                    //styles={{width:"200%",height:"100%"}}
-                    resizeMode="cover"
-                    style={styles.image}>*/}
-                   
-                  <Text style={styles.instructions}>Please click the function below</Text>
+      <View style={{backgroundColor:"#FFF",height:"100%"}}>
+      <Image source ={require('../images/logo.png')}
+          style={{width:"100%",height:"50%"}}
+          resizeMode="cover"/>
       
       <TouchableOpacity 
         style={styles.button}
         onPress={()=>navigate('Check')}>
-      <Image source={require('../images/eye.png')} resizeMode='contain' style={{height:50,width:27.5,marginBottom:-40}} />
-      <Text style={styles.buttonText}>View member information</Text>
+      <Image source={require('../images/profile.png')} resizeMode='contain' style={{height:40,width:30,marginBottom:-40}} />
+      <Text style={styles.buttonText}>  帳 號</Text>
       </TouchableOpacity>
       <Text></Text>
 
-      {/* <TouchableOpacity
-        style={styles.button}
-        onPress={()=>navigate('Modify')}>
-        <Text style={styles.buttonText}>Edit member information</Text>
-      </TouchableOpacity>
-      <Text></Text> */}
-
-      {/*<TouchableOpacity
-        style={styles.button}
-        onPress={()=>navigate('Time')}>
-        <Text style={styles.buttonText}>Switch setting</Text>
-      </TouchableOpacity>
-    <Text></Text>*/}
-
-     {/*  <TouchableOpacity
-        onPress={openImagePickerAsync}
-        style={styles.button}>
-        <Text style={styles.buttonText}>檢視圖像</Text>
-      </TouchableOpacity>
-      <Text></Text> */}
-
-      {/*<TouchableOpacity
-        style={styles.button}
-        onPress={()=>navigate('TimeSet')}>
-        <Text style={styles.buttonText}>Time Setting</Text>
-    </TouchableOpacity>*/}
     
       <Text></Text>
       <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Resources')}>
-        <Image source={require('../images/resource.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
-        <Text style={styles.buttonText}>Other resources</Text>
+        <Image source={require('../images/gear.png')} resizeMode='contain' style={{height:40,width:30,marginBottom:-40}} />
+        <Text style={styles.buttonText}>  資 源</Text>
       </TouchableOpacity>
       
       <Text></Text>
 
+      <Text></Text>
       <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Home')}>
-         <Image source={require('../images/logout.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
-        <Text style={styles.buttonText}>Log out</Text>
+         <Image source={require('../images/logout.png')} resizeMode='contain' style={{height:40,width:30,marginBottom:-40}} />
+        <Text style={styles.buttonText}>  登 出</Text>
       </TouchableOpacity>   
 
      
@@ -148,7 +120,7 @@ export default class Profile extends React.Component{
         justifyContent: 'center',
         padding:10,
         borderRadius:15,
-        marginHorizontal:50,
+        marginHorizontal:100,
         
         
     },

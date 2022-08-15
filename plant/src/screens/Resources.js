@@ -17,27 +17,20 @@ export default class Resources extends React.Component{
   return (
     
 
-    <View style={styles.container}>
-                <ImageBackground source ={require('../images/cloud.png')}
-                   // sty={{height:"100%"}}
-                    resizeMode="cover"
-                    style={styles.image}>
+    <View style={{backgroundColor:"#FFF",height:"100%"}}>
+                <Image source ={require('../images/logo.png')}
+                    style={{width:"100%",height:"50%"}}
+                    resizeMode="cover"/>
             
-   <Text style ={{color: 'black',
-      fontSize: 30,
-      marginHorizontal: 15,
-      marginBottom: 20,
-      textAlign: "center",
-      fontWeight:"bold",
-      color:"yellow"}}>Resources</Text>
+   
 
 
             
     <TouchableOpacity
         style={styles.button}
         onPress={this.phonecall}>
-        <Image source={require('../images/police.png')} resizeMode='contain' style={{height:40,width:40 ,marginBottom:-40}} />
-        <Text style={styles.buttonText}>報警</Text>
+        <Image source={require('../images/call.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
+        <Text style={styles.buttonText}>  報 警</Text>
       </TouchableOpacity> 
      
      <Text></Text>
@@ -45,8 +38,8 @@ export default class Resources extends React.Component{
       <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Deal')}>
-         <Image source={require('../images/handle.png')} resizeMode='contain' style={{height:50,width:50 ,marginBottom:-40}} />
-        <Text style={styles.buttonText}>處理原則</Text>
+         <Image source={require('../images/process.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
+        <Text style={styles.buttonText}>  處理原則</Text>
       </TouchableOpacity>
 
       <Text></Text>
@@ -54,8 +47,8 @@ export default class Resources extends React.Component{
        <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Support')}>
-         <Image source={require('../images/help.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
-        <Text style={styles.buttonText}>求助資源</Text>
+         <Image source={require('../images/help.png')} resizeMode='contain' style={{height:40,width:30,marginBottom:-40}} />
+        <Text style={styles.buttonText}>  求助資源</Text>
       </TouchableOpacity> 
 
       <Text></Text>
@@ -63,8 +56,8 @@ export default class Resources extends React.Component{
        <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Grant')}>
-         <Image source={require('../images/help2.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
-        <Text style={styles.buttonText}>補助資源</Text>
+         <Image source={require('../images/money.png')} resizeMode='contain' style={{height:40,width:30,marginBottom:-40}} />
+        <Text style={styles.buttonText}>  補助資源</Text>
       </TouchableOpacity> 
 
       <Text></Text>
@@ -72,8 +65,8 @@ export default class Resources extends React.Component{
         <TouchableOpacity
         style={styles.button}
         onPress={()=>navigate('Policy')}>
-         <Image source={require('../images/help3.png')} resizeMode='contain' style={{height:50,width:50,marginBottom:-40}} />
-        <Text style={styles.buttonText}>宣導資源</Text>
+         <Image source={require('../images/class.png')} resizeMode='contain' style={{height:40,width:30,marginBottom:-40}} />
+        <Text style={styles.buttonText}>  宣導資源</Text>
       </TouchableOpacity>  
 
       
@@ -92,7 +85,7 @@ export default class Resources extends React.Component{
      
       
     
-    </ImageBackground>
+  
     </View>
   );
 }
@@ -104,14 +97,13 @@ const styles = StyleSheet.create({
    
   },
   button:{
-    backgroundColor: 'white', 
+    backgroundColor: '#0abab5', 
     borderWidth:2, 
-    borderColor:'black',
+    borderColor:'white',
     justifyContent: 'center',
     padding:10,
-    
-    
-   
+    marginHorizontal:100,
+    borderRadius:10
   },
   buttons:{
     backgroundColor: 'white', 

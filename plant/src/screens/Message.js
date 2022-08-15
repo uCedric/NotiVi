@@ -1,21 +1,3 @@
-/* import React from 'react'
-import {View, Text} from 'react-native'
-//import LoginScreen from "react-native-login-screen"
-
-const Favourite = () => {
-    return(
-         <View style={{
-            justifyContent:"center",
-            alignContent:"center",
-            flex:1
-        }}>
-            <Text>Favourite</Text>
-        </View> 
-        //<LoginScreen></LoginScreen>
-    )
-}
-export default Favourite;
- */
 import { StatusBar } from "expo-status-bar";
 import React, { useState,useEffect } from "react";
 import { StyleSheet, Text, View, Button,ImageBackground ,image,TouchableOpacity, Image} from "react-native";
@@ -121,23 +103,25 @@ export default function App() {
    return (
     
 
-    <View style = {styles.container}>
-      
+    //<View style = {styles.container}>
+    <View style={{backgroundColor:"#FFF",height:"100%"}}>
+                <Image source ={require('../images/logo.png')}
+                    style={{width:"100%",height:"50%"}}
+                    resizeMode="cover"/>
  
     <TouchableOpacity
         style={styles.button}
         onPress={handleNotification}>
         <Image source={require('../images/notification.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
-        <Text style={styles.buttonText}>Notification</Text>
+        <Text style={styles.buttonText}>  通 知</Text>
       </TouchableOpacity> 
-     
-     <Text></Text>
+ 
 
       <TouchableOpacity
         style={styles.button}
         onPress={pickImage} >
          <Image source={require('../images/video.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
-        <Text style={styles.buttonText}>Videos</Text>
+        <Text style={styles.buttonText}>  影 片</Text>
       </TouchableOpacity>
 
       
@@ -152,17 +136,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    
   },
   button:{
     backgroundColor: '#0abab5', 
     borderWidth:2, 
-    borderColor:'black',
+    borderColor:'white',
     justifyContent: 'center',
     padding:10,
     borderRadius:15,
-    marginHorizontal:50
-   
+    marginHorizontal:100,
+    marginBottom:40
   },
   buttons:{
     backgroundColor: 'white', 

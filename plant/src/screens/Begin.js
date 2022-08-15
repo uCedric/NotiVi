@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     //marginHorizontal:55,
     //alignItems:"center",
     //justifyContent:"center",
-    backgroundColor:"#7B68EE",
+    backgroundColor:"#7B68EE",//#0abab5
     paddingVertical:10,
     padding:20,
     borderRadius:23,

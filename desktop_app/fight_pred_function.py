@@ -34,7 +34,7 @@ firebaseConfig={
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
-img_list = os.listdir("../project/videos/")
+img_list = os.listdir("./videos/")
 total_len = len(img_list)
 #randomlist = random.sample(range(0,total_len), 5000)
 #store_imgs = [img_list[item] for item in randomlist]
@@ -125,7 +125,7 @@ def upload_file():
     try:
         for index,imgName in enumerate(img_list): 
             print(imgName)
-            fileUrl = "../project/videos/"+imgName
+            fileUrl = "./videos/"+imgName
             cloudfilename = "videos/user1/"+local_time+"/"+imgName
             storage.child(cloudfilename).put(fileUrl)           
     except:
@@ -139,8 +139,8 @@ def status_check(status,frame):
     return frame
 
 def start_the_iden():
-    model = mamon_videoFightModel2(tf,wight='./fight_model/mamonbest947oscombo.hdfs')
-    cap = cv2.VideoCapture('./fight_vedios/newsfight.mp4')
+    model = mamon_videoFightModel2(tf,wight='../fight_model/mamonbest947oscombo.hdfs')
+    cap = cv2.VideoCapture('../fight_vedios/newsfight.mp4')
     i = 0
     frames = np.zeros((30, 160, 160, 3), dtype=np.float)
     old = []
@@ -180,8 +180,8 @@ def start_the_iden():
             i+=1
         frame = status_check(status,frame)
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        vio = cv2.VideoWriter("../project/videos/output-"+str(j)+".avi", fourcc, 10.0, (fwidth,fheight))
-        #vio = cv2.VideoWriter("./videos/output-"+str(j)+".mp4", cv2.VideoWriter_fourcc(*'mp4v'), 10, (300, 400))
+        vio = cv2.VideoWriter("./videos/output-"+str(j)+".avi", fourcc, 10.0, (fwidth,fheight))
+        #vio = cv2.VideoWriter("./videos/"+str(j)+".mp4", cv2.VideoWriter_fourcc(*'XVID'), 10, (300, 400))
         for frameinss in old:
             vio.write(frameinss)
         vio.release()
@@ -195,7 +195,7 @@ def start_the_iden():
 
     cv2.destroyAllWindows()
 
-app = Flask(__name__)
+"""app = Flask(__name__)
 @app.route("/")
 def first_page():
     return jsonify({"hello!!!!":"world"})
@@ -208,5 +208,5 @@ def start():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    sys_exit(1)
+    sys_exit(1)"""
     

@@ -688,14 +688,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.btn_new)
 
         self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_save")
+        self.btn_save.setObjectName(u"btn_start_detecting")
         sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
         self.btn_save.setSizePolicy(sizePolicy)
         self.btn_save.setMinimumSize(QSize(0, 45))
         self.btn_save.setFont(font)
         self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
+        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-media-play.png)")
 
         self.verticalLayout_8.addWidget(self.btn_save)
 

@@ -4,16 +4,24 @@ import {Image,StyleSheet,View,TouchableOpacity, Text,Button, Alert, ImageBackgro
 import * as ImagePicker from 'expo-image-picker'
 import Check from '../screens/Check'
 import { render } from 'react-dom'
-
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 
 export default class Profile extends React.Component{
 
-  
-   
-  
-
-
+  async preload(){
+    try {
+      const email = await AsyncStorage.getItem('email')
+      const password = await AsyncStorage.getItem('password')
+      
+      if(email !== null&&password!=null) {
+          // value previously stored
+          this.props.navigation.navigate('Check',{email:email,password:password})
+      }
+      } catch(e) {
+          console.log("fail")// error reading value
+      }
+  }
    render(){
     const {navigate} = this.props.navigation
   
@@ -40,7 +48,7 @@ export default class Profile extends React.Component{
       
       <TouchableOpacity 
         style={styles.button}
-        onPress={()=>navigate('Check')}>
+        onPress={()=>this.preload()}>
       <Image source={require('../images/eye.png')} resizeMode='contain' style={{height:50,width:27.5,marginBottom:-40}} />
       <Text style={styles.buttonText}>View member information</Text>
       </TouchableOpacity>

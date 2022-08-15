@@ -2,12 +2,52 @@
 import React from 'react';
 import {Text,View,Image, TextInput,ImageBackground,StyleSheet} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
-
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 export default class Check extends React.Component{
-    
+    constructor(props){
+        super(props);
+        const {navigation} = this.props;
+        //const data = navigation.getParam("email"); 
+        this.state={
+            email:props.route.params.email,
+            password:props.route.params.password,
+            emailError:'',
+            passwordError:'',
+            navigation_state:''
+        }
+    }
+    async preload(){
+        await this.getData()
+        if(this.state.email==null)
+            console.log("fail")
+    }
+    getData = async() => {
+        try {
+        const value = await AsyncStorage.getItem('email')
+        if(value !== null) {
+            // value previously stored
+            this.setState({email:value})
+        }
+        } catch(e) {
+            console.log("fail")// error reading value
+        }
+        console.log("done")
+    }
+    submit(){
+        AsyncStorage.getItem('email')
+            .then( 
+            (result)=> { 
+            if (result == null) {
+            return;
+            }
+            this.setState({email:result})
+            console.log("name:" + result);
+            })
+    }
     render(){
         const {navigate} = this.props.navigation
+        
         return(
             <View style={{height:"100%"}}>
                 <ImageBackground source ={require('../images/background.jpeg')}
@@ -54,13 +94,14 @@ export default class Check extends React.Component{
                     backgroundColor:"white"
                 }}>
                     
+                
                     <Text
                     style={{
                      fontSize:15,
                     // fontFamily:"SemiBold",
                      alignSelf:"center",
                  }}
-                >abcdefgh@gmail.com</Text>
+                >{this.state.email}</Text>
 
                
   
@@ -88,7 +129,7 @@ export default class Check extends React.Component{
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
                  }}
-                >。。。。。。</Text>
+                >{this.state.password}</Text>
               </View>
              
               <Text></Text>
@@ -113,13 +154,16 @@ export default class Check extends React.Component{
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
                  }}
-                >aaaaaa</Text>
+                >user1</Text>
            
            </View>
 
            <Text 
                 
-                onPress={()=>navigate('Modify')}
+                onPress={()=>{
+                            //navigate('Modify')
+                            //this.submit()                                                    
+                        }}
                 
                 style={{
                     alignSelf:"center",

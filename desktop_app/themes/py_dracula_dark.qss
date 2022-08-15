@@ -41,7 +41,7 @@ QToolTip {
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Bg App */
 #bgApp {	
-	background-color: rgb(40, 44, 52);
+	background-color:rgb(40, 44, 52) ;/*#f5ddb5*/
 	border: 1px solid rgb(44, 49, 58);
 }
 
@@ -57,7 +57,7 @@ Left Menu */
 	background-repeat: no-repeat;
 }
 #titleLeftApp { font: 63 12pt "Segoe UI Semibold"; }
-#titleLeftDescription { font: 8pt "Segoe UI"; color: rgb(189, 147, 249); }
+#titleLeftDescription { font: 8pt "Segoe UI"; color: #0abab5; }/*rgb(189, 147, 249)*/
 
 /* MENUS */
 #topMenu .QPushButton {	

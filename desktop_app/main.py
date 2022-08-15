@@ -17,7 +17,7 @@
 import sys
 import os
 import platform
-
+import fight_pred_function
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
@@ -45,8 +45,8 @@ class MainWindow(QMainWindow):
 
         # APP NAME
         # ///////////////////////////////////////////////////////////////
-        title = "PyDracula - Modern GUI"
-        description = "PyDracula APP - Theme with colors based on Dracula for Python."
+        title = "NotiVi"
+        description = "NotiVi-2"
         # APPLY TEXTS
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
@@ -90,7 +90,7 @@ class MainWindow(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
+        themeFile = "themes\py_dracula_dark.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -132,8 +132,10 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
-        if btnName == "btn_save":
+        if btnName == "btn_start_detecting":
             print("Save BTN clicked!")
+            fight_pred_function.start_the_iden()
+            fight_pred_function.upload_file()
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
@@ -159,6 +161,6 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("icon.ico"))
+    app.setWindowIcon(QIcon("我就爛.ico"))
     window = MainWindow()
     sys.exit(app.exec_())

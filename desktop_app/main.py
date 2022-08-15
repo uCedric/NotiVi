@@ -17,6 +17,7 @@
 import sys
 import os
 import platform
+import requests
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
@@ -71,6 +72,13 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets.clicked.connect(self.buttonClick)
         widgets.btn_new.clicked.connect(self.buttonClick)
         widgets.btn_save.clicked.connect(self.buttonClick)
+
+        widgets.login.clicked.connect(self.buttonClick)
+        widgets.checkvideo.clicked.connect(self.buttonClick)
+
+        widgets.btn_widgets.setEnabled(False)
+        #widgets.btn_new.setEnabled(False)
+        widgets.btn_save.setEnabled(False)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -135,6 +143,12 @@ class MainWindow(QMainWindow):
         if btnName == "btn_save":
             print("Save BTN clicked!")
 
+        if btnName == "checkvideo":
+            self.browsefiles()
+
+        if btnName == "login":
+            self.login()
+
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
@@ -156,6 +170,26 @@ class MainWindow(QMainWindow):
             print('Mouse click: LEFT CLICK')
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
+
+    def browsefiles(self):
+        fname = QFileDialog.getOpenFileName(self)
+        print (fname)
+
+    def login(self):
+        email = widgets.email.text()
+        password = widgets.password.text()
+        data = {
+            "email":email,
+            "password":password
+        }
+        r = requests.post("http://localhost:5000/login", json = data)
+        print(email)
+        print(password)
+        if r.text == "logined":
+            widgets.btn_widgets.setEnabled(True)
+            widgets.btn_new.setEnabled(True)
+            widgets.btn_save.setEnabled(True)
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>720</height>
+    <width>1111</width>
+    <height>656</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -25,6 +25,7 @@
     <font>
      <family>Segoe UI</family>
      <pointsize>10</pointsize>
+     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -95,6 +96,10 @@ Left Menu */
 #topMenu .QPushButton:pressed {	
 	background-color: rgb(189, 147, 249);
 	color: rgb(255, 255, 255);
+}
+#topMenu .QPushButton:disabled {	
+	background-color:rgb(60,44,52);
+	color: rgb(60,44,52);
 }
 #bottomMenu .QPushButton {	
 	background-position: left center;
@@ -677,6 +682,7 @@ Button */
               <font>
                <family>Segoe UI Semibold</family>
                <pointsize>12</pointsize>
+               <weight>7</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -707,6 +713,7 @@ Button */
               <font>
                <family>Segoe UI</family>
                <pointsize>8</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
@@ -792,6 +799,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -855,6 +863,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -891,6 +900,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -902,7 +912,8 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);
+</string>
                   </property>
                   <property name="text">
                    <string>Widgets</string>
@@ -927,6 +938,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -963,6 +975,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -999,6 +1012,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1062,6 +1076,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1316,6 +1331,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1352,6 +1368,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1388,6 +1405,7 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1437,7 +1455,7 @@ Button */
                   </property>
                   <property name="html">
                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;PyDracula&lt;/span&gt;&lt;/p&gt;
@@ -1578,12 +1596,13 @@ p, li { white-space: pre-wrap; }
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
-                   <string>PyDracula APP - Theme with colors based on Dracula for Python.</string>
+                   <string/>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1711,6 +1730,7 @@ p, li { white-space: pre-wrap; }
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                     <stylestrategy>PreferDefault</stylestrategy>
@@ -1863,10 +1883,129 @@ p, li { white-space: pre-wrap; }
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/images/images/PyDracula_vertical.png);
-background-position: center;
-background-repeat: no-repeat;</string>
+                       <string notr="true">background-position: center bottom;
+background-repeat: no-repeat;
+</string>
                       </property>
+                      <widget class="QLineEdit" name="email">
+                       <property name="geometry">
+                        <rect>
+                         <x>280</x>
+                         <y>200</y>
+                         <width>391</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-color: rgb(10, 186, 181);
+border-radius:10px;
+border-width:3px;
+background-color: rgb(255, 255, 255);
+background-image:none;
+border-image:none;</string>
+                       </property>
+                      </widget>
+                      <widget class="QLineEdit" name="password">
+                       <property name="geometry">
+                        <rect>
+                         <x>280</x>
+                         <y>300</y>
+                         <width>391</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-color:#0ABAB5;
+border-radius:10px;
+border-width:3px;
+background-color: rgb(255, 255, 255);
+background-image:none;
+border-image:none;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="login">
+                       <property name="geometry">
+                        <rect>
+                         <x>410</x>
+                         <y>370</y>
+                         <width>121</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size:20px;
+background-color: rgb(255, 255, 255);
+font: 20pt &quot;微軟正黑體&quot;;
+border-color:#0ABAB5;
+border-radius:10px;
+border-width:3px;
+color: rgb(0, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>登入</string>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="emai_label">
+                       <property name="geometry">
+                        <rect>
+                         <x>280</x>
+                         <y>160</y>
+                         <width>101</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 15pt &quot;微軟正黑體&quot;;
+background-image:none;
+border-image:none;
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>電子郵件</string>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="password_label">
+                       <property name="geometry">
+                        <rect>
+                         <x>280</x>
+                         <y>270</y>
+                         <width>91</width>
+                         <height>21</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size:15px;
+font: 15pt &quot;微軟正黑體&quot;;
+background-image:none;
+border-image:none;</string>
+                       </property>
+                       <property name="text">
+                        <string>密碼</string>
+                       </property>
+                      </widget>
+                      <widget class="QFrame" name="logo_home">
+                       <property name="geometry">
+                        <rect>
+                         <x>350</x>
+                         <y>19</y>
+                         <width>241</width>
+                         <height>121</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-image:url(images/images/logo.png);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="widgets">
                       <property name="styleSheet">
@@ -1969,6 +2108,7 @@ background-repeat: no-repeat;</string>
                                    <font>
                                     <family>Segoe UI</family>
                                     <pointsize>10</pointsize>
+                                    <weight>50</weight>
                                     <italic>false</italic>
                                     <bold>false</bold>
                                    </font>
@@ -2029,6 +2169,7 @@ background-repeat: no-repeat;</string>
                                      <font>
                                       <family>Segoe UI</family>
                                       <pointsize>10</pointsize>
+                                      <weight>50</weight>
                                       <italic>false</italic>
                                       <bold>false</bold>
                                      </font>
@@ -2163,7 +2304,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>274</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -2200,6 +2341,7 @@ background-repeat: no-repeat;</string>
                                <font>
                                 <family>Segoe UI</family>
                                 <pointsize>10</pointsize>
+                                <weight>50</weight>
                                 <italic>false</italic>
                                 <bold>false</bold>
                                </font>
@@ -2711,13 +2853,47 @@ background-repeat: no-repeat;</string>
                      <widget class="QWidget" name="new_page">
                       <layout class="QVBoxLayout" name="verticalLayout_20">
                        <item>
-                        <widget class="QLabel" name="label">
-                         <property name="text">
-                          <string>NEW PAGE TEST</string>
+                        <widget class="QFrame" name="frame">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>258</height>
+                          </size>
                          </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
+                         <property name="maximumSize">
+                          <size>
+                           <width>991</width>
+                           <height>258</height>
+                          </size>
                          </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_2">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_21">
+                          <item>
+                           <widget class="QPushButton" name="test">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>PushButton</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </widget>
                        </item>
                       </layout>
@@ -2845,6 +3021,7 @@ background-repeat: no-repeat;</string>
                             <font>
                              <family>Segoe UI</family>
                              <pointsize>10</pointsize>
+                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -2881,6 +3058,7 @@ background-repeat: no-repeat;</string>
                             <font>
                              <family>Segoe UI</family>
                              <pointsize>10</pointsize>
+                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -2917,6 +3095,7 @@ background-repeat: no-repeat;</string>
                             <font>
                              <family>Segoe UI</family>
                              <pointsize>10</pointsize>
+                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -2995,6 +3174,7 @@ background-repeat: no-repeat;</string>
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>-1</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>

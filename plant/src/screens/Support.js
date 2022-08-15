@@ -13,12 +13,10 @@ export default function App() {
  
   return (
     
-
-    <View style={styles.container}>
-                <ImageBackground source ={require('../images/cloud.png')}
-                   // sty={{height:"100%"}}
-                    resizeMode="cover"
-                    style={styles.image}>
+    <View style={{backgroundColor:"#FFF",height:"100%"}}>
+    <Image source ={require('../images/logo.png')}
+        style={{width:"100%",height:"50%"}}
+        resizeMode="cover"/>
             
    <Text style={styles.texts}
       onPress={() => Linking.openURL('https://dep.mohw.gov.tw/DOPS/cp-1179-6482-105.html')}
@@ -86,26 +84,6 @@ export default function App() {
       鑑於多數男性，對於傾訴心情、對外求助較排斥，本專線以保護隱私之方式提供具家庭議題困擾之男性諮詢服務。
     </Text> 
 
-
-
-  
-            
-   
-      
-        
-        
-      
-    
-      
-
-      
-      
-
-      
-     
-      
-    
-    </ImageBackground>
     </View>
   );
 }
@@ -129,7 +107,7 @@ const styles = StyleSheet.create({
     //marginBottom: 10,
     textAlign: "center",
     fontWeight:"bold",
-    color:"yellow"
+    color:"#0abab5"
   },
   
 

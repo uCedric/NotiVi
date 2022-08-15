@@ -108,16 +108,17 @@ import axios from 'axios';
         return(
             
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
-                <Image source ={require('../images/anti.png')}
-                    style={{width:"100%",height:"43%"}}
+                <Image source ={require('../images/logo.png')}
+                    style={{width:"100%",height:"50%"}}
                 />
                 <Text
                  style={{
-                     fontSize:30,
+                     fontSize:20,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
+                     color:"#0abab5",
                  }}  
-                >Register now!!</Text>
+                >Safe Your Life</Text>
 
 
                  <Text
@@ -129,14 +130,15 @@ import axios from 'axios';
                 <Text style={{color:'red', marginLeft:60, fontSize:15, }}>{this.state.nameError}</Text>
                 <View style={{
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
-                    marginHorizontal:50
+                    marginHorizontal:50,
+                    borderRadius:15
                 }}>
                     
                     <TextInput 
                         placeholder="Name"
-                        placeholderTextColor="#00716F"
+                        placeholderTextColor="#0abab5"
                         onBlur={() => this.NameValid()}
                         onChangeText={(text) => this.updateValue(text, 'name')}
                         style={{paddingHorizontal:10}}
@@ -159,14 +161,15 @@ import axios from 'axios';
                 <Text style={{color:'red', marginLeft:60, fontSize:15, }}>{this.state.emailError}</Text>
                 <View style={{
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
-                    marginHorizontal:50
+                    marginHorizontal:50,
+                    borderRadius:15
                 }}>
                    
                     <TextInput 
                         placeholder="Email"
-                        placeholderTextColor="#00716F"
+                        placeholderTextColor="#0abab5"
                         onBlur={() => this.emailValid()}
                         onChangeText={(text) => this.updateValue(text, 'mail')}
                         style={{paddingHorizontal:10}}
@@ -178,15 +181,16 @@ import axios from 'axios';
                 <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
                 <View style={{
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
-                    marginHorizontal:50
+                    marginHorizontal:50,
+                    borderRadius:15
                 }}>
                    
                    <TextInput 
                         secureTextEntry
                         placeholder="Password"
-                        placeholderTextColor="#00716F"
+                        placeholderTextColor="#0abab5"
                         onBlur={() => this.PasswordValid()}
                         onChangeText={(text) => this.updateValue(text, 'password')}
                         style={{paddingHorizontal:10}}
@@ -209,15 +213,16 @@ import axios from 'axios';
                     borderRadius:23,
                     paddingVertical:2 */
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
-                    marginHorizontal:50
+                    marginHorizontal:50,
+                    borderRadius:15
                 }}>
                    
                    <TextInput 
                         secureTextEntry
                         placeholder="Confirm Password"
-                        placeholderTextColor="#00716F"
+                        placeholderTextColor="#0abab5"
                         style={{paddingHorizontal:10}}
                     />
                     
@@ -229,7 +234,7 @@ import axios from 'axios';
                     alignItems:"center",
                     justifyContent:"center",
                     marginTop:30,
-                    backgroundColor:"#00716F",
+                    backgroundColor:"#0abab5",
                     paddingVertical:10,
                     borderRadius:23
                 }}>

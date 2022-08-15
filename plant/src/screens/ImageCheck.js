@@ -41,7 +41,7 @@ export default function ImagePickerExample() {
 
   return (
     <View style={{height:"100%"}}>
-      <ImageBackground source ={require('../images/background.jpeg')}
+      <ImageBackground source ={require('../images/logo.png')}
                     //<Image source ={require('../images/anti.png')}</Image>
                     //style={{width:"100%",height:"35%"}}
                     resizeMode="cover"

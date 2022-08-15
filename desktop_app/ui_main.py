@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainpgXXif.ui'
+## Form generated from reading UI file 'maingnxZcz.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.0.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1111, 656)
+        MainWindow.resize(1280, 720)
         MainWindow.setMinimumSize(QSize(940, 560))
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
@@ -27,7 +27,6 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
-        font.setLegacyWeight(50)
         self.styleSheet.setFont(font)
         self.styleSheet.setStyleSheet(u"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "\n"
@@ -97,9 +96,8 @@ class Ui_MainWindow(object):
                         "9, 147, 249);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
-"#topMenu .QPushButton:disabled {	\n"
-"	background-color:rgb(60,44,52);\n"
-"	color: rgb(60,44,52);\n"
+"#topMenu .QPushButton:disabled{\n"
+"       background-color:rgb(60, 44, 52)\n"
 "}\n"
 "#bottomMenu .QPushButton {	\n"
 "	background-position: left center;\n"
@@ -132,12 +130,12 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "	color: rgb(113, 126, 149);\n"
 "}\n"
-"#toggleButton:h"
-                        "over {\n"
+"#toggleButton:hover {\n"
 "	background-color: rgb(40, 44, 52);\n"
 "}\n"
 "#toggleButton:pressed {\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb("
+                        "189, 147, 249);\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -166,12 +164,12 @@ class Ui_MainWindow(object):
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
 "#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, "
-                        "238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border-top: 3px solid rgb(40, 44, 52);\n"
+"	border"
+                        "-top: 3px solid rgb(40, 44, 52);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -202,9 +200,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* Top Buttons */\n"
-"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;"
-                        "  border-radius: 5px; }\n"
-"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
+"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-sty"
+                        "le: solid; border-radius: 4px; }\n"
 "#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
@@ -228,11 +226,11 @@ class Ui_MainWindow(object):
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
 "	background-color: rgb(40, 44, 52);\n"
-""
-                        "}\n"
+"}\n"
 "#contentSettings .QPushButton:pressed {	\n"
 "	background-color: rgb(189, 147, 249);\n"
-"	color: rgb(255, 255, 255);\n"
+"	color: rgb"
+                        "(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -263,12 +261,12 @@ class Ui_MainWindow(object):
 "}\n"
 "QTableWidget::horizontalHeader {	\n"
 "	background-color: rgb(33, 37, 43);\n"
-""
-                        "}\n"
+"}\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
 "    border: 1px solid rgb(33, 37, 43);\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	background-co"
+                        "lor: rgb(33, 37, 43);\n"
 "	padding: 3px;\n"
 "	border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
@@ -299,11 +297,11 @@ class Ui_MainWindow(object):
 "PlainTextEdit */\n"
 "QPlainTextEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
-"	bord"
-                        "er-radius: 5px;\n"
+"	border-radius: 5px;\n"
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"	selection-background-c"
+                        "olor: rgb(255, 121, 198);\n"
 "}\n"
 "QPlainTextEdit  QScrollBar:vertical {\n"
 "    width: 8px;\n"
@@ -337,12 +335,12 @@ class Ui_MainWindow(object):
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
 "	border-top-right-radius: 4px;\n"
-"    border-"
-                        "bottom-right-radius: 4px;\n"
+"    border-bottom-right-radius: 4px;\n"
 "    subcontrol-position: right;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::sub-line:horizontal {\n"
+""
+                        "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -375,11 +373,11 @@ class Ui_MainWindow(object):
 "     border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "     height: 20px;\n"
-"	border-bottom-l"
-                        "eft-radius: 4px;\n"
+"	border-bottom-left-radius: 4px;\n"
 "    border-bottom-right-radius: 4px;\n"
 "     subcontrol-position: bottom;\n"
-"     subcontrol-origin: margin;\n"
+"     su"
+                        "bcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
@@ -410,11 +408,11 @@ class Ui_MainWindow(object):
 "QCheckBox::indicator:hover {\n"
 "    border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
-"QCheckBox::indicator:"
-                        "checked {\n"
+"QCheckBox::indicator:checked {\n"
 "    background: 3px solid rgb(52, 59, 72);\n"
 "	border: 3px solid rgb(52, 59, 72);	\n"
-"	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
+"	back"
+                        "ground-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -444,12 +442,12 @@ class Ui_MainWindow(object):
 "	padding-left: 10px;\n"
 "}\n"
 "QComboBox:hover{\n"
-"	bord"
-                        "er: 2px solid rgb(64, 71, 88);\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
-"	subcontrol-position: top right;\n"
+"	subco"
+                        "ntrol-position: top right;\n"
 "	width: 25px; \n"
 "	border-left-width: 3px;\n"
 "	border-left-color: rgba(39, 44, 54, 150);\n"
@@ -478,11 +476,11 @@ class Ui_MainWindow(object):
 "QSlider::groove:horizontal:hover {\n"
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
-""
-                        "QSlider::handle:horizontal {\n"
+"QSlider::handle:horizontal {\n"
 "    background-color: rgb(189, 147, 249);\n"
 "    border: none;\n"
-"    height: 10px;\n"
+"    h"
+                        "eight: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
 "	border-radius: 5px;\n"
@@ -518,10 +516,10 @@ class Ui_MainWindow(object):
 "    background-color: rgb(255, 121, 198);\n"
 "}\n"
 "\n"
-"/* ///////////////////////////////"
-                        "//////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-"QCommandLinkButton {	\n"
+"QCommandLi"
+                        "nkButton {	\n"
 "	color: rgb(255, 121, 198);\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
@@ -553,9 +551,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
+        self.appMargins = QVBoxLayout(self.styleSheet)
+        self.appMargins.setSpacing(0)
+        self.appMargins.setObjectName(u"appMargins")
+        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
-        self.bgApp.setGeometry(QRect(10, 10, 1091, 636))
         self.bgApp.setStyleSheet(u"")
         self.bgApp.setFrameShape(QFrame.NoFrame)
         self.bgApp.setFrameShadow(QFrame.Raised)
@@ -594,7 +595,6 @@ class Ui_MainWindow(object):
         font1.setPointSize(12)
         font1.setBold(False)
         font1.setItalic(False)
-        font1.setLegacyWeight(7)
         self.titleLeftApp.setFont(font1)
         self.titleLeftApp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.titleLeftDescription = QLabel(self.topLogoInfo)
@@ -606,7 +606,6 @@ class Ui_MainWindow(object):
         font2.setPointSize(8)
         font2.setBold(False)
         font2.setItalic(False)
-        font2.setLegacyWeight(50)
         self.titleLeftDescription.setFont(font2)
         self.titleLeftDescription.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
@@ -675,8 +674,7 @@ class Ui_MainWindow(object):
         self.btn_widgets.setFont(font)
         self.btn_widgets.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_widgets.setLayoutDirection(Qt.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);\n"
-"")
+        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);")
 
         self.verticalLayout_8.addWidget(self.btn_widgets)
 
@@ -693,14 +691,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.btn_new)
 
         self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_start_detecting")
+        self.btn_save.setObjectName(u"btn_save")
         sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
         self.btn_save.setSizePolicy(sizePolicy)
         self.btn_save.setMinimumSize(QSize(0, 45))
         self.btn_save.setFont(font)
         self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-media-play.png)")
+        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
 
         self.verticalLayout_8.addWidget(self.btn_save)
 
@@ -981,7 +979,6 @@ class Ui_MainWindow(object):
         font3.setPointSize(10)
         font3.setBold(False)
         font3.setItalic(False)
-        font3.setLegacyWeight(50)
         font3.setStyleStrategy(QFont.PreferDefault)
         self.maximizeRestoreAppBtn.setFont(font3)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1038,58 +1035,9 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background: transparent;")
         self.home = QWidget()
         self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-position: center bottom;\n"
-"background-repeat: no-repeat;\n"
-"")
-        self.email = QLineEdit(self.home)
-        self.email.setObjectName(u"email")
-        self.email.setGeometry(QRect(280, 200, 391, 51))
-        self.email.setStyleSheet(u"border-color: rgb(10, 186, 181);\n"
-"border-radius:10px;\n"
-"border-width:3px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"background-image:none;\n"
-"border-image:none;")
-        self.password = QLineEdit(self.home)
-        self.password.setObjectName(u"password")
-        self.password.setGeometry(QRect(280, 300, 391, 51))
-        self.password.setStyleSheet(u"border-color:#0ABAB5;\n"
-"border-radius:10px;\n"
-"border-width:3px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"background-image:none;\n"
-"border-image:none;")
-        self.login = QPushButton(self.home)
-        self.login.setObjectName(u"login")
-        self.login.setGeometry(QRect(410, 370, 121, 51))
-        self.login.setStyleSheet(u"font-size:20px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"font: 20pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
-"border-color:#0ABAB5;\n"
-"border-radius:10px;\n"
-"border-width:3px;\n"
-"color: rgb(0, 0, 0);")
-        self.emai_label = QLabel(self.home)
-        self.emai_label.setObjectName(u"emai_label")
-        self.emai_label.setGeometry(QRect(280, 160, 101, 31))
-        self.emai_label.setStyleSheet(u"font: 15pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
-"background-image:none;\n"
-"border-image:none;\n"
-"\n"
-"")
-        self.password_label = QLabel(self.home)
-        self.password_label.setObjectName(u"password_label")
-        self.password_label.setGeometry(QRect(280, 270, 91, 21))
-        self.password_label.setStyleSheet(u"font-size:15px;\n"
-"font: 15pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
-"background-image:none;\n"
-"border-image:none;")
-        self.logo_home = QFrame(self.home)
-        self.logo_home.setObjectName(u"logo_home")
-        self.logo_home.setGeometry(QRect(350, 19, 241, 121))
-        self.logo_home.setStyleSheet(u"border-image:url(images/images/logo.png);")
-        self.logo_home.setFrameShape(QFrame.StyledPanel)
-        self.logo_home.setFrameShadow(QFrame.Raised)
+        self.home.setStyleSheet(u"background-image: url(:/images/images/images/PyDracula_vertical.png);\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;")
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1232,7 +1180,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1437,37 +1385,11 @@ class Ui_MainWindow(object):
         self.new_page.setObjectName(u"new_page")
         self.verticalLayout_20 = QVBoxLayout(self.new_page)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.frame = QFrame(self.new_page)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.checkvideo = QPushButton(self.frame)
-        self.checkvideo.setObjectName(u"checkvideo")
-        self.checkvideo.setGeometry(QRect(380, 320, 171, 61))
-        self.checkvideo.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"font: 14pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
-"background-color: rgb(10, 186, 181);\n"
-"border-color: rgb(10, 186, 181);")
-        self.label = QLabel(self.frame)
+        self.label = QLabel(self.new_page)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(270, 90, 401, 111))
-        font5 = QFont()
-        font5.setFamily(u"\u5fae\u8edf\u6b63\u9ed1\u9ad4")
-        font5.setPointSize(36)
-        font5.setBold(False)
-        font5.setItalic(False)
-        font5.setLegacyWeight(50)
-        self.label.setFont(font5)
-        self.label.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(10, 186, 181);\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-radius:10px;\n"
-"border-width:3px;\n"
-"font: 36pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
-"text-align:center;")
         self.label.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_20.addWidget(self.frame)
+        self.verticalLayout_20.addWidget(self.label)
 
         self.stackedWidget.addWidget(self.new_page)
 
@@ -1571,12 +1493,11 @@ class Ui_MainWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font6 = QFont()
-        font6.setFamily(u"Segoe UI")
-        font6.setBold(False)
-        font6.setItalic(False)
-        font6.setLegacyWeight(50)
-        self.creditsLabel.setFont(font6)
+        font5 = QFont()
+        font5.setFamily(u"Segoe UI")
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.creditsLabel.setFont(font5)
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
@@ -1604,6 +1525,9 @@ class Ui_MainWindow(object):
 
 
         self.appLayout.addWidget(self.contentBox)
+
+
+        self.appMargins.addWidget(self.bgApp)
 
         MainWindow.setCentralWidget(self.styleSheet)
 
@@ -1635,20 +1559,20 @@ class Ui_MainWindow(object):
         self.btn_adjustments.setText(QCoreApplication.translate("MainWindow", u"Adjustments", None))
         self.btn_more.setText(QCoreApplication.translate("MainWindow", u"More", None))
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">PyDracula</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><"
-                        "span style=\" color:#ffffff;\">MIT License</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-inde"
+                        "nt:0; text-indent:0px;\"><span style=\" color:#ffffff;\">MIT License</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Wanderson M. Pimenta</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; "
-                        "margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
-        self.titleRightInfo.setText("")
+"<p align=\"center\" "
+                        "style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
+        self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"PyDracula APP - Theme with colors based on Dracula for Python.", None))
 #if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
@@ -1665,10 +1589,6 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.password.setText("")
-        self.login.setText(QCoreApplication.translate("MainWindow", u"\u767b\u5165", None))
-        self.emai_label.setText(QCoreApplication.translate("MainWindow", u"\u96fb\u5b50\u90f5\u4ef6", None))
-        self.password_label.setText(QCoreApplication.translate("MainWindow", u"\u5bc6\u78bc", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
@@ -1735,8 +1655,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.checkvideo.setText(QCoreApplication.translate("MainWindow", u"\u9078\u64c7\u672c\u5730\u5f71\u7247", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u8fa8\u8b58\u66b4\u529b", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"NEW PAGE TEST", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

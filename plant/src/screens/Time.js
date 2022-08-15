@@ -32,7 +32,7 @@ export default class Time extends Component {
 
         return (
             <View style = {{backgroundColor:"#FFF",height:"100%"}}>
-                <ImageBackground source ={require('../images/background.jpeg')}
+                <ImageBackground source ={require('../images/logo.png')}
                    // sty={{height:"100%"}}
                     resizeMode="cover"
                     style={styles.image}>

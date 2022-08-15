@@ -419,7 +419,7 @@ export default class Home extends React.Component{
             if (result == null) {
             return;
             }
-            console.log("name:" + result);
+            console.log("email:" + result);
             })
             //AsyncStorage.setItem('@app:email', that.state.mail); 
             
@@ -509,16 +509,17 @@ export default class Home extends React.Component{
                     resizeMode="cover"
                     style={{flex: 5,
                         justifyContent: "center"}}>  */}
-                <Image source ={require('../images/anti.png')}
-                    style={{width:"100%",height:"43%",}}
+                <Image source ={require('../images/logo.png')}
+                    style={{width:"100%",height:"50%",}}
                 />
                 <Text
                  style={{
-                     fontSize:35,
+                     fontSize:20,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
+                     color:"#0abab5",
                  }}
-                >Welcome to our app!!</Text>
+                >Save Your Life</Text>
 
                  <Text
                 style={{
@@ -535,15 +536,16 @@ export default class Home extends React.Component{
                 <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.emailError}</Text>
                 <View style={{
                      borderWidth:2,
-                     borderColor:"#00716F",
+                     borderColor:"#0abab5",
                      paddingVertical:5,
-                     marginHorizontal:50
+                     marginHorizontal:50,
+                     borderRadius:10
                 }}>
                    {/*  <Icon name="mail" color="#00716F" size={24}/> */}
                    
                     <TextInput 
-                        placeholder='Email'
-                        placeholderTextColor="#00716F"
+                        placeholder='信箱'
+                        placeholderTextColor="#0abab5"
                         onBlur={() => this.emailValid()}
                         onChangeText={(text) => this.updateValue(text, 'mail')}
                         style={{paddingHorizontal:10}}
@@ -565,14 +567,15 @@ export default class Home extends React.Component{
                     borderRadius:23,
                     paddingVertical:2  */
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
-                    marginHorizontal:50
+                    marginHorizontal:50,
+                    borderRadius:10
                 }}>
                     {/*  <Icon name="mail" color="#00716F" size={24}/>  */}
                     <TextInput 
-                        placeholder='Password'
-                        placeholderTextColor="#00716F"
+                        placeholder='密碼'
+                        placeholderTextColor="#0abab5"
                         onBlur={() => this.PasswordValid()}
                         secureTextEntry={true}
                         onChangeText={(text) => this.updateValue(text, 'password')}
@@ -584,11 +587,11 @@ export default class Home extends React.Component{
                 </View>
 
                 <View style={{
-                    marginHorizontal:55,
+                    marginHorizontal:150,
                     alignItems:"center",
                     justifyContent:"center",
                     marginTop:30,
-                    backgroundColor:"#00716F",
+                    backgroundColor:"#0abab5",
                     paddingVertical:10,
                     borderRadius:23
                 }}>
@@ -606,7 +609,7 @@ export default class Home extends React.Component{
                     style={{
                         color:"white",
                         //fontFamily:"SemiBold"
-                    }}>Already a member</Text>
+                    }}>登入</Text>
                 </View>
                 <Text 
                 
@@ -614,11 +617,11 @@ export default class Home extends React.Component{
                 
                 style={{
                     alignSelf:"center",
-                    color:"#00716F",
+                    color:"#0abab5",
                     //fontFamily:"SemiBold",
                     paddingVertical:30,
                     fontWeight:'bold',
-                }}>New User</Text> 
+                }}>註冊</Text> 
 
             </View>
         )

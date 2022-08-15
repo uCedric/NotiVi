@@ -41,7 +41,7 @@ export const App = () => {
 
   return (
     <View style={{height:"100%"}}>
-    <ImageBackground source ={require('../images/background.jpeg')}
+    <ImageBackground source ={require('../images/logo.png')}
         resizeMode="cover"
         style={styles.image}>
     <><><View>

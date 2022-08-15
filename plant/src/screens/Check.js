@@ -49,32 +49,19 @@ export default class Check extends React.Component{
         const {navigate} = this.props.navigation
         
         return(
-            <View style={{height:"100%"}}>
-                <ImageBackground source ={require('../images/background.jpeg')}
-                    //<Image source ={require('../images/anti.png')}</Image>
-                    //style={{width:"100%",height:"35%"}}
+            <View style={{backgroundColor:"#FFF",height:"100%"}}>
+                <Image source ={require('../images/logo.png')}
+                    style={{width:"100%",height:"50%"}}
                     resizeMode="cover"
-                    style={styles.image}>
-
-                 <Text
-                 style={{
-                     fontSize:35,
-                     //fontFamily:"SemiBold",
-                     alignSelf:"center",
-                     alignItems:"stretch",
-                    // flex:1,
-                     //marginTop:80
-                 }}
-                >This is your account</Text>
-              
-              <Text></Text>
+                    //style={styles.image}
+                    />
 
             <Text style={{
                      fontSize:15,
                      alignSelf:"center",
-                     color:"yellow",
+                     color:"#0abab5",
                      
-                 }}>Email</Text>
+                 }}>信箱</Text>
             <View style={{
                     /* flexDirection:"row",
                     alignItems:"center",
@@ -88,10 +75,11 @@ export default class Check extends React.Component{
                     backgroundColor:"white" */
                     flexDirection:"row",
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
                     marginHorizontal:50,
-                    backgroundColor:"white"
+                    backgroundColor:"white",
+                    borderRadius:10
                 }}>
                     
                 
@@ -100,6 +88,7 @@ export default class Check extends React.Component{
                      fontSize:15,
                     // fontFamily:"SemiBold",
                      alignSelf:"center",
+                     color:"#0abab5"
                  }}
                 >{this.state.email}</Text>
 
@@ -111,16 +100,17 @@ export default class Check extends React.Component{
                     <Text style={{
                         fontSize:15,
                         alignSelf:"center",
-                        color:"yellow",
+                        color:"#0abab5",
                         
-                    }}>Password</Text>
+                    }}>密碼</Text>
                 <View style={{
                     flexDirection:"row",
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
                     marginHorizontal:50,
-                    backgroundColor:"white"
+                    backgroundColor:"white",
+                    borderRadius:10
                 }}>
                     
                     <Text
@@ -128,6 +118,7 @@ export default class Check extends React.Component{
                      fontSize:15,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
+                     color:"#0abab5"
                  }}
                 >{this.state.password}</Text>
               </View>
@@ -136,16 +127,17 @@ export default class Check extends React.Component{
                     <Text style={{
                         fontSize:15,
                         alignSelf:"center",
-                        color:"yellow",
+                        color:"#0abab5",
                         
-                    }}>Name</Text>
+                    }}>名稱</Text>
               <View style={{
                     flexDirection:"row",
                     borderWidth:2,
-                    borderColor:"#00716F",
+                    borderColor:"#0abab5",
                     paddingVertical:5,
                     marginHorizontal:50,
-                    backgroundColor:"white"
+                    backgroundColor:"white",
+                    borderRadius:10
                 }}>
                     
                     <Text
@@ -153,6 +145,7 @@ export default class Check extends React.Component{
                      fontSize:15,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
+                     color:"#0abab5"
                  }}
                 >user1</Text>
            
@@ -167,11 +160,11 @@ export default class Check extends React.Component{
                 
                 style={{
                     alignSelf:"center",
-                    color:"#00716F",
+                    color:"#0abab5",
                     //fontFamily:"SemiBold",
                     paddingVertical:30,
                     fontWeight:'bold',
-                }}>Modify your password</Text> 
+                }}>修改密碼</Text> 
 
            <Text 
                 
@@ -180,17 +173,17 @@ export default class Check extends React.Component{
                 style={{
 
                     alignSelf:"center",
-                    color:"#00716F",
+                    color:"#0abab5",
                     //fontFamily:"SemiBold",
-                    paddingVertical:30,
+                    paddingVertical:10,
                     fontWeight:'bold',
-                }}>Modify your Name</Text> 
+                }}>修改名稱</Text> 
 
             
                 
 
 
-        </ImageBackground>
+        
         </View>
                 
         )    

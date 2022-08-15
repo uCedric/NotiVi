@@ -17,6 +17,7 @@
 import sys
 import os
 import platform
+import requests
 import fight_pred_function
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
@@ -45,8 +46,8 @@ class MainWindow(QMainWindow):
 
         # APP NAME
         # ///////////////////////////////////////////////////////////////
-        title = "NotiVi"
-        description = "NotiVi-2"
+        title = "PyDracula - Modern GUI"
+        description = "PyDracula APP - Theme with colors based on Dracula for Python."
         # APPLY TEXTS
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
@@ -72,6 +73,13 @@ class MainWindow(QMainWindow):
         widgets.btn_new.clicked.connect(self.buttonClick)
         widgets.btn_save.clicked.connect(self.buttonClick)
 
+        widgets.login.clicked.connect(self.buttonClick)
+        widgets.checkvideo.clicked.connect(self.buttonClick)
+
+        widgets.btn_widgets.setEnabled(False)
+        #widgets.btn_new.setEnabled(False)
+        widgets.btn_save.setEnabled(False)
+
         # EXTRA LEFT BOX
         def openCloseLeftBox():
             UIFunctions.toggleLeftBox(self, True)
@@ -90,7 +98,7 @@ class MainWindow(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_dark.qss"
+        themeFile = "themes\py_dracula_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -132,10 +140,17 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
-        if btnName == "btn_start_detecting":
-            print("Save BTN clicked!")
+        if btnName == "btn_save":
             fight_pred_function.start_the_iden()
             fight_pred_function.upload_file()
+            print("Save BTN clicked!")
+            
+
+        if btnName == "checkvideo":
+            self.browsefiles()
+
+        if btnName == "login":
+            self.login()
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
@@ -159,8 +174,30 @@ class MainWindow(QMainWindow):
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
 
+    def browsefiles(self):
+        fname = QFileDialog.getOpenFileName(self)
+        fight_pred_function.start_the_iden(fname[0])
+        fight_pred_function.upload_file()
+        print (fname)
+
+    def login(self):
+        email = widgets.email.text()
+        password = widgets.password.text()
+        data = {
+            "email":email,
+            "password":password
+        }
+        r = requests.post("https://flask-server-7-15.herokuapp.com/login", json = data)
+        print(email)
+        print(password)
+        if r.text == "logined":
+            widgets.btn_widgets.setEnabled(True)
+            widgets.btn_new.setEnabled(True)
+            widgets.btn_save.setEnabled(True)
+        
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("我就爛.ico"))
+    app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
     sys.exit(app.exec_())

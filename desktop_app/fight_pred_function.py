@@ -138,9 +138,9 @@ def status_check(status,frame):
         cv2.putText(frame,'Non-Violance', (0, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, ( 0, 255, 0), 2,cv2.LINE_4)
     return frame
 
-def start_the_iden():
+def start_the_iden(filename):
     model = mamon_videoFightModel2(tf,wight='../fight_model/mamonbest947oscombo.hdfs')
-    cap = cv2.VideoCapture('../fight_vedios/newsfight.mp4')
+    cap = cv2.VideoCapture(filename)
     i = 0
     frames = np.zeros((30, 160, 160, 3), dtype=np.float)
     old = []

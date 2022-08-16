@@ -118,26 +118,20 @@ import axios from 'axios';
                      alignSelf:"center",
                      color:"#0abab5",
                  }}  
-                >Safe Your Life</Text>
+                >Save Your Life</Text>
 
 
-                 <Text
-                style={{
-                    
-                }}
-                >
-                </Text>
                 <Text style={{color:'red', marginLeft:60, fontSize:15, }}>{this.state.nameError}</Text>
                 <View style={{
                     borderWidth:2,
                     borderColor:"#0abab5",
                     paddingVertical:5,
                     marginHorizontal:50,
-                    borderRadius:15
+                    borderRadius:10
                 }}>
                     
                     <TextInput 
-                        placeholder="Name"
+                        placeholder="名稱"
                         placeholderTextColor="#0abab5"
                         onBlur={() => this.NameValid()}
                         onChangeText={(text) => this.updateValue(text, 'name')}
@@ -152,23 +146,18 @@ import axios from 'axios';
 
 
  
-                <Text
-                style={{
-                    
-                }}
-                >
-                </Text>
+                
                 <Text style={{color:'red', marginLeft:60, fontSize:15, }}>{this.state.emailError}</Text>
                 <View style={{
                     borderWidth:2,
                     borderColor:"#0abab5",
                     paddingVertical:5,
                     marginHorizontal:50,
-                    borderRadius:15
+                    borderRadius:10
                 }}>
                    
                     <TextInput 
-                        placeholder="Email"
+                        placeholder="信箱"
                         placeholderTextColor="#0abab5"
                         onBlur={() => this.emailValid()}
                         onChangeText={(text) => this.updateValue(text, 'mail')}
@@ -177,19 +166,19 @@ import axios from 'axios';
 
                 
                 </View>
-                <Text></Text>
+               
                 <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
                 <View style={{
                     borderWidth:2,
                     borderColor:"#0abab5",
                     paddingVertical:5,
                     marginHorizontal:50,
-                    borderRadius:15
+                    borderRadius:10
                 }}>
                    
                    <TextInput 
                         secureTextEntry
-                        placeholder="Password"
+                        placeholder="密碼"
                         placeholderTextColor="#0abab5"
                         onBlur={() => this.PasswordValid()}
                         onChangeText={(text) => this.updateValue(text, 'password')}
@@ -200,7 +189,7 @@ import axios from 'axios';
                     
 
                 </View>
-                <Text></Text>
+              
                 <Text style={{color:'red', marginLeft:60, fontSize:15 }}>{this.state.passwordError}</Text>
                 <View style={{
                    /*  flexDirection:"row",
@@ -216,12 +205,12 @@ import axios from 'axios';
                     borderColor:"#0abab5",
                     paddingVertical:5,
                     marginHorizontal:50,
-                    borderRadius:15
+                    borderRadius:10
                 }}>
                    
                    <TextInput 
                         secureTextEntry
-                        placeholder="Confirm Password"
+                        placeholder="確認密碼"
                         placeholderTextColor="#0abab5"
                         style={{paddingHorizontal:10}}
                     />
@@ -230,7 +219,7 @@ import axios from 'axios';
                 </View>
                 
                 <View style={{
-                    marginHorizontal:55,
+                    marginHorizontal:120,
                     alignItems:"center",
                     justifyContent:"center",
                     marginTop:30,
@@ -247,7 +236,7 @@ import axios from 'axios';
                     style={{
                         color:"white",
                         //fontFamily:"SemiBold"
-                    }}>Register</Text>
+                    }}>確認送出</Text>
                 </View>
               
             </View>

@@ -139,7 +139,7 @@ def status_check(status,frame):
     return frame
 
 def start_the_iden(filename):
-    model = mamon_videoFightModel2(tf,wight='../fight_model/mamonbest947oscombo.hdfs')
+    model = mamon_videoFightModel2(tf,wight='../fight_modules/mamonbest947oscombo.hdfs')
     cap = cv2.VideoCapture(filename)
     i = 0
     frames = np.zeros((30, 160, 160, 3), dtype=np.float)
@@ -159,6 +159,11 @@ def start_the_iden(filename):
             predaction = pred_fight(model,ysdatav2,0.965)
             if predaction[0] == True:
                 status=1
+                fourcc = cv2.VideoWriter_fourcc(*'XVID')
+                vio = cv2.VideoWriter("./videos/output-"+str(j)+".avi", fourcc, 10.0, (fwidth,fheight))
+                for frameinss in old:
+                    vio.write(frameinss)
+                vio.release()
                 print('Violance detacted here ...')
             else:
                 status=0
@@ -179,21 +184,16 @@ def start_the_iden(filename):
         
             i+=1
         frame = status_check(status,frame)
-        fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        vio = cv2.VideoWriter("./videos/output-"+str(j)+".avi", fourcc, 10.0, (fwidth,fheight))
+        
         #vio = cv2.VideoWriter("./videos/"+str(j)+".mp4", cv2.VideoWriter_fourcc(*'XVID'), 10, (300, 400))
-        for frameinss in old:
-            vio.write(frameinss)
-        vio.release()
         cv2.imshow('video', frame)
   
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
+            break           
     cap.release()
-
     cv2.destroyAllWindows()
+    upload_file()
 
 """app = Flask(__name__)
 @app.route("/")

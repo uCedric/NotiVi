@@ -140,9 +140,8 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
-        if btnName == "btn_save":
+        if btnName == "btn_start_detecting":
             fight_pred_function.start_the_iden()
-            fight_pred_function.upload_file()
             print("Save BTN clicked!")
             
 
@@ -177,7 +176,6 @@ class MainWindow(QMainWindow):
     def browsefiles(self):
         fname = QFileDialog.getOpenFileName(self)
         fight_pred_function.start_the_iden(fname[0])
-        fight_pred_function.upload_file()
         print (fname)
 
     def login(self):

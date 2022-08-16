@@ -88,6 +88,7 @@ export default class Check extends React.Component{
                      fontSize:15,
                     // fontFamily:"SemiBold",
                      alignSelf:"center",
+                     marginHorizontal:10,
                      color:"#0abab5"
                  }}
                 >{this.state.email}</Text>
@@ -118,7 +119,8 @@ export default class Check extends React.Component{
                      fontSize:15,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
-                     color:"#0abab5"
+                     color:"#0abab5",
+                     marginHorizontal:10,
                  }}
                 >{this.state.password}</Text>
               </View>
@@ -145,7 +147,8 @@ export default class Check extends React.Component{
                      fontSize:15,
                      //fontFamily:"SemiBold",
                      alignSelf:"center",
-                     color:"#0abab5"
+                     color:"#0abab5",
+                     marginHorizontal:10,
                  }}
                 >user1</Text>
            

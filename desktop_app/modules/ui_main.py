@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainpgXXif.ui'
+## Form generated from reading UI file 'mainuDhXQm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -565,7 +565,7 @@ class Ui_MainWindow(object):
         self.appLayout.setContentsMargins(0, 0, 0, 0)
         self.leftMenuBg = QFrame(self.bgApp)
         self.leftMenuBg.setObjectName(u"leftMenuBg")
-        self.leftMenuBg.setMinimumSize(QSize(60, 0))
+        self.leftMenuBg.setMinimumSize(QSize(240, 0))
         self.leftMenuBg.setMaximumSize(QSize(60, 16777215))
         self.leftMenuBg.setFrameShape(QFrame.NoFrame)
         self.leftMenuBg.setFrameShadow(QFrame.Raised)
@@ -667,18 +667,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
-        self.btn_widgets = QPushButton(self.topMenu)
-        self.btn_widgets.setObjectName(u"btn_widgets")
-        sizePolicy.setHeightForWidth(self.btn_widgets.sizePolicy().hasHeightForWidth())
-        self.btn_widgets.setSizePolicy(sizePolicy)
-        self.btn_widgets.setMinimumSize(QSize(0, 45))
-        self.btn_widgets.setFont(font)
-        self.btn_widgets.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_widgets.setLayoutDirection(Qt.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);\n"
+        self.btn_settime = QPushButton(self.topMenu)
+        self.btn_settime.setObjectName(u"btn_settime")
+        sizePolicy.setHeightForWidth(self.btn_settime.sizePolicy().hasHeightForWidth())
+        self.btn_settime.setSizePolicy(sizePolicy)
+        self.btn_settime.setMinimumSize(QSize(0, 45))
+        self.btn_settime.setFont(font)
+        self.btn_settime.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_settime.setLayoutDirection(Qt.LeftToRight)
+        self.btn_settime.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);\n"
 "")
 
-        self.verticalLayout_8.addWidget(self.btn_widgets)
+        self.verticalLayout_8.addWidget(self.btn_settime)
 
         self.btn_new = QPushButton(self.topMenu)
         self.btn_new.setObjectName(u"btn_new")
@@ -693,14 +693,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.btn_new)
 
         self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_start_detecting")
+        self.btn_save.setObjectName(u"btn_save")
         sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
         self.btn_save.setSizePolicy(sizePolicy)
         self.btn_save.setMinimumSize(QSize(0, 45))
         self.btn_save.setFont(font)
         self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-media-play.png)")
+        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
 
         self.verticalLayout_8.addWidget(self.btn_save)
 
@@ -894,6 +894,8 @@ class Ui_MainWindow(object):
 
         self.contentBox = QFrame(self.bgApp)
         self.contentBox.setObjectName(u"contentBox")
+        self.contentBox.setStyleSheet(u"\n"
+"background-color: rgb(255, 255, 255);")
         self.contentBox.setFrameShape(QFrame.NoFrame)
         self.contentBox.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.contentBox)
@@ -904,6 +906,7 @@ class Ui_MainWindow(object):
         self.contentTopBg.setObjectName(u"contentTopBg")
         self.contentTopBg.setMinimumSize(QSize(0, 50))
         self.contentTopBg.setMaximumSize(QSize(16777215, 50))
+        self.contentTopBg.setStyleSheet(u"background-color: rgb(40, 44, 52);")
         self.contentTopBg.setFrameShape(QFrame.NoFrame)
         self.contentTopBg.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.contentTopBg)
@@ -1073,6 +1076,7 @@ class Ui_MainWindow(object):
         self.emai_label.setObjectName(u"emai_label")
         self.emai_label.setGeometry(QRect(280, 160, 101, 31))
         self.emai_label.setStyleSheet(u"font: 15pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
+"color: rgb(10, 186, 181);\n"
 "background-image:none;\n"
 "border-image:none;\n"
 "\n"
@@ -1081,16 +1085,90 @@ class Ui_MainWindow(object):
         self.password_label.setObjectName(u"password_label")
         self.password_label.setGeometry(QRect(280, 270, 91, 21))
         self.password_label.setStyleSheet(u"font-size:15px;\n"
+"color: rgb(10, 186, 181);\n"
 "font: 15pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
 "background-image:none;\n"
 "border-image:none;")
         self.logo_home = QFrame(self.home)
         self.logo_home.setObjectName(u"logo_home")
+        self.logo_home.setEnabled(True)
         self.logo_home.setGeometry(QRect(350, 19, 241, 121))
         self.logo_home.setStyleSheet(u"border-image:url(images/images/logo.png);")
         self.logo_home.setFrameShape(QFrame.StyledPanel)
         self.logo_home.setFrameShadow(QFrame.Raised)
         self.stackedWidget.addWidget(self.home)
+        self.settime = QWidget()
+        self.settime.setObjectName(u"settime")
+        self.start_time = QTimeEdit(self.settime)
+        self.start_time.setObjectName(u"start_time")
+        self.start_time.setGeometry(QRect(220, 350, 191, 31))
+        self.start_time.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(10, 186, 181);\n"
+"border-radius:10px;\n"
+"font: 15pt\"\u5fae\u8edf\u6b63\u9ed1\u9ad4\" ;")
+        self.start_time.setAlignment(Qt.AlignCenter)
+        self.start_date = QDateEdit(self.settime)
+        self.start_date.setObjectName(u"start_date")
+        self.start_date.setGeometry(QRect(220, 290, 191, 31))
+        self.start_date.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(10, 186, 181);\n"
+"border-radius:10px;\n"
+"font: 15pt\"\u5fae\u8edf\u6b63\u9ed1\u9ad4\" ;")
+        self.start_date.setAlignment(Qt.AlignCenter)
+        self.start_date2 = QDateEdit(self.settime)
+        self.start_date2.setObjectName(u"start_date2")
+        self.start_date2.setGeometry(QRect(570, 290, 191, 31))
+        self.start_date2.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(10, 186, 181);\n"
+"border-radius:10px;\n"
+"font: 15pt\"\u5fae\u8edf\u6b63\u9ed1\u9ad4\" ;")
+        self.start_date2.setAlignment(Qt.AlignCenter)
+        self.start_time2 = QTimeEdit(self.settime)
+        self.start_time2.setObjectName(u"start_time2")
+        self.start_time2.setGeometry(QRect(570, 350, 191, 31))
+        font4 = QFont()
+        font4.setFamily(u"\u5fae\u8edf\u6b63\u9ed1\u9ad4")
+        font4.setPointSize(15)
+        font4.setBold(False)
+        font4.setItalic(False)
+        font4.setLegacyWeight(50)
+        font4.setStrikeOut(False)
+        self.start_time2.setFont(font4)
+        self.start_time2.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(10, 186, 181);\n"
+"border-radius:10px;\n"
+"font: 15pt\"\u5fae\u8edf\u6b63\u9ed1\u9ad4\" ;")
+        self.start_time2.setAlignment(Qt.AlignCenter)
+        self.frame_2 = QFrame(self.settime)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setGeometry(QRect(370, 50, 231, 161))
+        self.frame_2.setStyleSheet(u"border-image:url(images/images/logo.png);")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.settime_text = QLabel(self.settime)
+        self.settime_text.setObjectName(u"settime_text")
+        self.settime_text.setGeometry(QRect(360, 231, 261, 41))
+        font5 = QFont()
+        font5.setFamily(u"\u5fae\u8edf\u6b63\u9ed1\u9ad4")
+        font5.setPointSize(25)
+        font5.setBold(False)
+        font5.setItalic(False)
+        font5.setLegacyWeight(50)
+        self.settime_text.setFont(font5)
+        self.settime_text.setStyleSheet(u"font: 25pt\"\u5fae\u8edf\u6b63\u9ed1\u9ad4\" ;\n"
+"color: rgb(10, 186, 181);\n"
+"background-image:none;\n"
+"border-image:none;")
+        self.settime_text.setAlignment(Qt.AlignCenter)
+        self.confirm = QPushButton(self.settime)
+        self.confirm.setObjectName(u"confirm")
+        self.confirm.setGeometry(QRect(440, 430, 101, 41))
+        self.confirm.setStyleSheet(u"\n"
+"color: rgb(255, 255, 255);\n"
+"font: 14pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
+"background-color: rgb(10, 186, 181);\n"
+"border-color: rgb(10, 186, 181);")
+        self.stackedWidget.addWidget(self.settime)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
         self.widgets.setStyleSheet(u"b")
@@ -1321,10 +1399,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
-        font4 = QFont()
-        font4.setFamily(u"Segoe UI")
+        font6 = QFont()
+        font6.setFamily(u"Segoe UI")
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font4);
+        __qtablewidgetitem4.setFont(font6);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
@@ -1451,19 +1529,19 @@ class Ui_MainWindow(object):
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(270, 90, 401, 111))
-        font5 = QFont()
-        font5.setFamily(u"\u5fae\u8edf\u6b63\u9ed1\u9ad4")
-        font5.setPointSize(36)
-        font5.setBold(False)
-        font5.setItalic(False)
-        font5.setLegacyWeight(50)
-        self.label.setFont(font5)
+        font7 = QFont()
+        font7.setFamily(u"\u5fae\u8edf\u6b63\u9ed1\u9ad4")
+        font7.setPointSize(36)
+        font7.setBold(False)
+        font7.setItalic(False)
+        font7.setLegacyWeight(50)
+        self.label.setFont(font7)
         self.label.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(10, 186, 181);\n"
-"border-color: rgb(0, 0, 0);\n"
 "border-radius:10px;\n"
 "border-width:3px;\n"
 "font: 36pt \"\u5fae\u8edf\u6b63\u9ed1\u9ad4\";\n"
+"border-color: rgb(255, 255, 255);\n"
 "text-align:center;")
         self.label.setAlignment(Qt.AlignCenter)
 
@@ -1571,12 +1649,12 @@ class Ui_MainWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font6 = QFont()
-        font6.setFamily(u"Segoe UI")
-        font6.setBold(False)
-        font6.setItalic(False)
-        font6.setLegacyWeight(50)
-        self.creditsLabel.setFont(font6)
+        font8 = QFont()
+        font8.setFamily(u"Segoe UI")
+        font8.setBold(False)
+        font8.setItalic(False)
+        font8.setLegacyWeight(50)
+        self.creditsLabel.setFont(font8)
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
@@ -1609,7 +1687,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1621,9 +1699,9 @@ class Ui_MainWindow(object):
         self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Modern GUI / Flat Style", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
+        self.btn_settime.setText(QCoreApplication.translate("MainWindow", u"set time", None))
         self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
-        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
+        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"run", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
@@ -1669,6 +1747,8 @@ class Ui_MainWindow(object):
         self.login.setText(QCoreApplication.translate("MainWindow", u"\u767b\u5165", None))
         self.emai_label.setText(QCoreApplication.translate("MainWindow", u"\u96fb\u5b50\u90f5\u4ef6", None))
         self.password_label.setText(QCoreApplication.translate("MainWindow", u"\u5bc6\u78bc", None))
+        self.settime_text.setText(QCoreApplication.translate("MainWindow", u"\u8a2d\u5b9a\u8fa8\u8b58\u6642\u6bb5", None))
+        self.confirm.setText(QCoreApplication.translate("MainWindow", u"\u78ba\u8a8d", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))

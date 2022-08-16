@@ -69,14 +69,15 @@ class MainWindow(QMainWindow):
 
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_widgets.clicked.connect(self.buttonClick)
+        widgets.btn_settime.clicked.connect(self.buttonClick)
         widgets.btn_new.clicked.connect(self.buttonClick)
         widgets.btn_save.clicked.connect(self.buttonClick)
 
         widgets.login.clicked.connect(self.buttonClick)
+        widgets.confirm.clicked.connect(self.buttonClick)
         widgets.checkvideo.clicked.connect(self.buttonClick)
 
-        widgets.btn_widgets.setEnabled(False)
+        widgets.btn_settime.setEnabled(False)
         #widgets.btn_new.setEnabled(False)
         widgets.btn_save.setEnabled(False)
 
@@ -129,8 +130,8 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW WIDGETS PAGE
-        if btnName == "btn_widgets":
-            widgets.stackedWidget.setCurrentWidget(widgets.widgets)
+        if btnName == "btn_settime":
+            widgets.stackedWidget.setCurrentWidget(widgets.settime)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
@@ -150,10 +151,15 @@ class MainWindow(QMainWindow):
 
         if btnName == "login":
             self.login()
-
+        if btnName == "confirm":
+            start_d = widgets.start_date.text()
+            final_d = widgets.start_date2.text()
+            start_t = widgets.start_time.text()
+            final_t = widgets.start_time2.text()
+            print(f'we will detecting during {start_d} {start_t} ~ {final_d} {final_t}')
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
-
+        
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
@@ -189,7 +195,7 @@ class MainWindow(QMainWindow):
         print(email)
         print(password)
         if r.text == "logined":
-            widgets.btn_widgets.setEnabled(True)
+            widgets.btn_settime.setEnabled(True)
             widgets.btn_new.setEnabled(True)
             widgets.btn_save.setEnabled(True)
         

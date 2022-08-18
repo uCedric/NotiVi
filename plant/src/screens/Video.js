@@ -1,53 +1,57 @@
 import * as React from 'react';
+import { useState,useEffect } from "react";
 import { View, StyleSheet, Button,TouchableOpacity, Image, Text} from 'react-native';
 import {Picker} from '@react-native-picker/picker'
 import { Video, AVPlaybackStatus } from 'expo-av';
+import {VideosList} from './firebase'
+import init from './firebase'
 
-export default class Videos extends React.Component{ 
-   videos
-  //const [status, setStatus] = React.useState({});
-  constructor(){
-    super();
-    this.state={
-        status:''
-    }
-}
-updateValue(text){
-      this.setState({
-          status:text,
-      })
+export default function App() { //export default class Video extends React.Component {
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
+  //const [url, setUrl] = useState();
+  init();
+  const test = () =>{
+    console.log(VideosList) 
+  }
   
-}
-
-  render(){
+  const url = VideosList[0].value// errro:init 會瘋狂抓資料到list然後爆掉
+  
   return (
     <View style={styles.container}>
       
-            
       <Video
-        ref={this.videos}
+        ref={video}
         style={styles.video}
         source={{
-          uri:'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          uri:url//'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
         }}
         useNativeControls
         resizeMode="contain"
         isLooping
-        onPlaybackStatusUpdate={this.updateValue(this.state.status)}
-        //onPlaybackStatusUpdate={status => setStatus(() => status)}
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
       
+    
       <View style={styles.buttons}>
         <Button
-          title={this.state.isPlaying ? 'Pause' : 'Play'}
+          title={status.isPlaying ? 'Pause' : 'Play'}
           onPress={() =>
-            this.state.status.isPlaying ? videos.current.pauseAsync() : videos.current.playAsync()
+            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
           }
+        />
+      </View>
+
+      <View style={styles.buttons}>
+        <Button
+          style={{fontSize: 20, color: 'green'}}
+          styleDisabled={{color: 'red'}}
+          onPress={test}
+          title="test"
         />
       </View>
     </View>
   );
-}
 }
 const styles = StyleSheet.create({
   container: {

@@ -7,7 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { render } from "react-dom";
 import axios from 'axios';
 import { getStorage, ref, getDownloadURL, listAll, getMetadata } from 'firebase/storage'; //access the storage database
-import init from './firebase';
+//import init from './firebase';
 
 Notification.setNotificationHandler({
   handleNotification: async () => {
@@ -33,10 +33,10 @@ Notification.setNotificationHandler({
         }
       });
   }, []);*/
-  init();
-  var UserVideos = {};
+  //init();
+  /*var UserVideos = {};
   var itemName
-  var VideosList=[]
+  var VideosList=[]*/
   export default class Register extends React.Component{
 
 
@@ -70,7 +70,7 @@ Notification.setNotificationHandler({
  
 
  
-  preload = () => {
+ /* preload = () => {
     try {
       this.load
       if(VideosList != null) {
@@ -81,10 +81,10 @@ Notification.setNotificationHandler({
       } catch(e) {
           console.log("fail")// error reading value
       }
-  } 
+  } */
 
   
-  load = () => {
+  /*load = () => {
     const storage = getStorage();
     const listRef = ref(storage, '/videos/user1/2022-07-12 23:18:08');
     listAll(listRef)
@@ -119,10 +119,25 @@ Notification.setNotificationHandler({
         VideosList.push({key,value});
       });
       
-      console.log(JSON.stringify(UserVideos))
-    }
+      console.log(VideosList[0].key)
+    }*/
 
- 
+ /*<View style={styles.buttons}>
+        <Button
+          style={{fontSize: 20, color: 'green'}}
+          styleDisabled={{color: 'red'}}
+          onPress={this.load}
+          title="loading the videos"
+        />
+      </View>
+      <View style={styles.buttons}>
+        <Button
+          style={{fontSize: 20, color: 'green'}}
+          styleDisabled={{color: 'red'}}
+          onPress={this.test}
+          title="test"
+        />
+      </View>*/ 
   
   render(){
    
@@ -140,8 +155,9 @@ Notification.setNotificationHandler({
  
     <TouchableOpacity
         style={styles.button}
-        //onPress={this.handleNotification}
-        onPress={()=>this.preload()}>
+        onPress={this.handleNotification}
+        //onPress={()=>this.preload()}
+        >
         <Image source={require('../images/notification.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
         <Text style={styles.buttonText}>  通 知</Text>
       </TouchableOpacity> 
@@ -154,22 +170,7 @@ Notification.setNotificationHandler({
         <Text style={styles.buttonText}>  影 片</Text>
       </TouchableOpacity>
 
-      <View style={styles.buttons}>
-        <Button
-          style={{fontSize: 20, color: 'green'}}
-          styleDisabled={{color: 'red'}}
-          onPress={this.load}
-          title="loading the videos"
-        />
-      </View>
-      <View style={styles.buttons}>
-        <Button
-          style={{fontSize: 20, color: 'green'}}
-          styleDisabled={{color: 'red'}}
-          onPress={this.test}
-          title="test"
-        />
-      </View>
+      
     </View>
     
   ); 

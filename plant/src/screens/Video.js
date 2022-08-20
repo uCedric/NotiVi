@@ -10,27 +10,39 @@ export default function App() { //export default class Video extends React.Compo
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   //const [url, setUrl] = useState();
+  const [selectedValue, setSelectedValue] = useState(VideosList[0].value);
   init();
   const test = () =>{
     console.log(VideosList) 
   }
   
-  const url = VideosList[0].value// errro:init 會瘋狂抓資料到list然後爆掉
-  
   return (
     <View style={styles.container}>
-      
-      <Video
+      <View>
+        <Text>  選擇影片</Text>
+        <Picker
+            prompt="Videos"
+            selectedValue={selectedValue}
+            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+            >
+          {VideosList.map((o,index) =>
+                  <Picker.Item label={o.key} value = {o.value}/>)
+          }  
+          
+        </Picker>
+      </View>
+
+       <Video
         ref={video}
         style={styles.video}
         source={{
-          uri:url//'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          uri:selectedValue//'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
         }}
         useNativeControls
         resizeMode="contain"
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
-      />
+      /> 
       
     
       <View style={styles.buttons}>
@@ -42,14 +54,14 @@ export default function App() { //export default class Video extends React.Compo
         />
       </View>
 
-      <View style={styles.buttons}>
+      {/* <View style={styles.buttons}>
         <Button
           style={{fontSize: 20, color: 'green'}}
           styleDisabled={{color: 'red'}}
           onPress={test}
           title="test"
         />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -57,14 +69,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: '#FFF',
   },
   video: {
     alignSelf: 'center',
-    width: 320,
+    width: 360,
     height: 200,
   },
   buttons: {
+    //backgroundColor: '#0abab5',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

@@ -157,8 +157,8 @@ export default class Check extends React.Component{
            <Text 
                 
                 onPress={()=>{
-                            //navigate('Modify')
-                            //this.submit()                                                    
+                            navigate('Modify')
+                            this.submit()                                                    
                         }}
                 
                 style={{

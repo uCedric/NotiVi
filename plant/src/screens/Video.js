@@ -6,12 +6,14 @@ import { Video, AVPlaybackStatus } from 'expo-av';
 import {VideosList} from './firebase'
 import init from './firebase'
 
+init();
 export default function App() { //export default class Video extends React.Component {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   //const [url, setUrl] = useState();
+  
   const [selectedValue, setSelectedValue] = useState(VideosList[0].value);
-  init();
+  
   const test = () =>{
     console.log(VideosList) 
   }

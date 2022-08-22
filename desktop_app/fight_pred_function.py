@@ -139,7 +139,7 @@ def status_check(status,frame):
     return frame
 
 def start_the_iden(filename):
-    model = mamon_videoFightModel2(tf,wight='../fight_modules/mamonbest947oscombo.hdfs')
+    model = mamon_videoFightModel2(tf,wight='../fight_model/mamonbest947oscombo.hdfs')
     cap = cv2.VideoCapture(filename)
     i = 0
     frames = np.zeros((30, 160, 160, 3), dtype=np.float)

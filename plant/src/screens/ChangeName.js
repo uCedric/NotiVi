@@ -88,7 +88,7 @@ export default class Modify extends React.Component{
                 }}>
                    
                    <TextInput 
-                       secureTextEntry
+                       //secureTextEntry
                        placeholder="名稱"
                        placeholderTextColor="#0abab5"
                        onBlur={() => this.NameValid()}

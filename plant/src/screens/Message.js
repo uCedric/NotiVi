@@ -6,6 +6,8 @@ import * as Permission from "expo-permissions";
 import * as ImagePicker from 'expo-image-picker';
 import { render } from "react-dom";
 import axios from 'axios';
+import { getStorage, ref, getDownloadURL, listAll, getMetadata } from 'firebase/storage'; //access the storage database
+//import init from './firebase';
 
 Notification.setNotificationHandler({
   handleNotification: async () => {
@@ -16,7 +18,7 @@ Notification.setNotificationHandler({
   },
 });
 
-export default function App() {
+/*export default function App() {
    useEffect(() => {
     Permission.getAsync(Permission.NOTIFICATIONS)
       .then((response) => {
@@ -30,9 +32,15 @@ export default function App() {
           return;
         }
       });
-  }, []);
+  }, []);*/
+  //init();
+  /*var UserVideos = {};
+  var itemName
+  var VideosList=[]*/
+  export default class Register extends React.Component{
 
-  const handleNotification = () => {
+
+  handleNotification = () => {
     Notification.scheduleNotificationAsync({
       content: {
         title: "Violence Reminding",
@@ -46,7 +54,7 @@ export default function App() {
 
 
 
-  const createTwoButtonAlert = () =>
+  createTwoButtonAlert = () =>
     Alert.alert(
     "Your parents are in danger",
     "Go save them",
@@ -61,45 +69,81 @@ export default function App() {
     );
  
 
-  const [image, setImage] = useState(null);
+ 
+ /* preload = () => {
+    try {
+      this.load
+      if(VideosList != null) {
+          // value previously stored
+          JSON.stringify(UserVideos)
+          this.props.navigation.navigate('Check',{UserVideos})
+      }
+      } catch(e) {
+          console.log("fail")// error reading value
+      }
+  } */
+
   
-
-
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    axios.get("https://flask-server-7-15.herokuapp.com/download_video")
-        .then(function (response) {
-          console.log("test")
-          console.log(response)
-          console.warn(response)
+  /*load = () => {
+    const storage = getStorage();
+    const listRef = ref(storage, '/videos/user1/2022-07-12 23:18:08');
+    listAll(listRef)
+    .then((res) => {
+      res.items.forEach((itemRef) => {
+        getMetadata(itemRef).then((metadata) => {
+          itemName= metadata.name
+          console.log(itemName)
+          this.geturl(itemName)
         })
-        .catch(function (error) {
-          console.log(error);
-        });
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
+          
+      });
+    })
   }
-
- 
- 
-
- 
+  geturl = () => {
+      const storage = getStorage();
+      const listRef = ref(storage,'/videos/user1/2022-07-12 23:18:08/'+itemName);
+      getDownloadURL(listRef).then((x) => {
+        UserVideos[itemName]=x
+        console.log(x)
+      }).catch((error) => {
+        console.log(error);
+      });
+    
+      
+    }
   
-  //render(){
+  test = () =>{
+      //console.log(UserVideos)
+      //var item
+      Object.entries(UserVideos).forEach(([key, value]) => {
+        VideosList.push({key,value});
+      });
+      
+      console.log(VideosList[0].key)
+    }*/
+
+ /*<View style={styles.buttons}>
+        <Button
+          style={{fontSize: 20, color: 'green'}}
+          styleDisabled={{color: 'red'}}
+          onPress={this.load}
+          title="loading the videos"
+        />
+      </View>
+      <View style={styles.buttons}>
+        <Button
+          style={{fontSize: 20, color: 'green'}}
+          styleDisabled={{color: 'red'}}
+          onPress={this.test}
+          title="test"
+        />
+      </View>*/ 
+  
+  render(){
    
     
 
-
+  const {navigate} = this.props.navigation
    return (
     
 
@@ -111,15 +155,17 @@ export default function App() {
  
     <TouchableOpacity
         style={styles.button}
-        onPress={handleNotification}>
+        onPress={this.handleNotification}
+        //onPress={()=>this.preload()}
+        >
         <Image source={require('../images/notification.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
         <Text style={styles.buttonText}>  通 知</Text>
       </TouchableOpacity> 
- 
+     
 
       <TouchableOpacity
         style={styles.button}
-        onPress={pickImage} >
+        onPress={()=>navigate('Video')} >
          <Image source={require('../images/video.png')} resizeMode='contain' style={{height:40,width:30 ,marginBottom:-40}} />
         <Text style={styles.buttonText}>  影 片</Text>
       </TouchableOpacity>
@@ -128,7 +174,7 @@ export default function App() {
     </View>
     
   ); 
-//}
+}
    
 }
 
@@ -148,12 +194,12 @@ const styles = StyleSheet.create({
     marginBottom:40
   },
   buttons:{
-    backgroundColor: 'white', 
-    borderWidth:2, 
-    borderColor:'black',
+    //backgroundColor: 'white', 
+    //borderWidth:2, 
+    //borderColor:'black',
     justifyContent: 'center',
     padding:10,
-    marginBottom:400
+    //marginBottom:400
    
   },
   buttonText:{

@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState,useEffect } from "react";
-import { StyleSheet, Text, View, Button,ImageBackground ,image,TouchableOpacity, Image} from "react-native";
+import { StyleSheet, Text, View,ScrollView, Button,ImageBackground ,image,TouchableOpacity, Image} from "react-native";
 import * as Notification from "expo-notifications";
 import * as Permission from "expo-permissions";
 import * as ImagePicker from 'expo-image-picker';
@@ -17,7 +17,7 @@ export default function App() {
     <Image source ={require('../images/logo.png')}
         style={{width:"100%",height:"50%"}}
         resizeMode="cover"/>
-            
+    <ScrollView>
    <Text style={styles.texts}
       onPress={() => Linking.openURL('https://dep.mohw.gov.tw/DOPS/cp-1179-6482-105.html')}
       >
@@ -83,7 +83,7 @@ export default function App() {
       <Text style={styles.text}>
       鑑於多數男性，對於傾訴心情、對外求助較排斥，本專線以保護隱私之方式提供具家庭議題困擾之男性諮詢服務。
     </Text> 
-
+    </ScrollView>
     </View>
   );
 }
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
    
   },
   text:{
-    fontSize: 12.5,
+    fontSize: 15,
     marginHorizontal: 15,
     marginBottom: 50,
     textAlign: "center",
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     color:"black"
   },
   texts:{
-    fontSize: 12,
+    fontSize: 17,
     marginHorizontal: 15,
     //marginBottom: 10,
     textAlign: "center",

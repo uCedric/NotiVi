@@ -19,6 +19,7 @@ import Deal from '../screens/Deal'
 import Support from '../screens/Support'
 import Grant from '../screens/Grant'
 import Policy from '../screens/Policy'
+import Video from '../screens/Video'
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -83,6 +84,7 @@ const HomeStackNavigator = () => {
         <Stack.Navigator screenOptions={screenOptionStyle}>
             <Stack.Screen name="Home" component={Home}/>
             <Stack.Screen name="Message" component={BottomTabNavigator}/>
+            <Stack.Screen name="Video" component={Video}/>
             <Stack.Screen name="Detail" component={Detail}/>
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="Check" component={Check}/>

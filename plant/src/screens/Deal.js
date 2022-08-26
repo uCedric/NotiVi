@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState,useEffect } from "react";
-import { StyleSheet, Text, View, Button,ImageBackground ,image,TouchableOpacity, Image} from "react-native";
+import { StyleSheet, Text, View, Button,ImageBackground ,image,TouchableOpacity, Image, ScrollView} from "react-native";
 import * as Notification from "expo-notifications";
 import * as Permission from "expo-permissions";
 import * as ImagePicker from 'expo-image-picker';
@@ -18,7 +18,7 @@ export default function App() {
     <Image source ={require('../images/logo.png')}
         style={{width:"100%",height:"50%"}}
         resizeMode="cover"/>
-            
+    <ScrollView>   
    <Text style={styles.texts}
       onPress={() => Linking.openURL('https://dep.mohw.gov.tw/DOPS/cp-1160-6410-105.html')}
       >
@@ -64,7 +64,7 @@ export default function App() {
       ，不得洩露或公開。
     </Text> 
       
-
+</ScrollView>
     </View>
   );
 }
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
    
   },
   text:{
-    fontSize: 14,
+    fontSize: 15,
     marginHorizontal: 15,
     marginBottom: 60,
     textAlign: "center",
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     color:"black"
   },
   texts:{
-    fontSize: 15,
+    fontSize: 17,
     marginHorizontal: 20,
     marginBottom: 50,
     textAlign: "left",

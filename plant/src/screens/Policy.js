@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
    
   },
   text:{
-    fontSize: 18,
+    fontSize: 15,
     marginHorizontal: 15,
     marginBottom: 60,
     textAlign: "center",
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     color:"black"
   },
   texts:{
-    fontSize: 16,
+    fontSize: 17,
     marginHorizontal: 15,
     marginBottom: 20,
     textAlign: "center",

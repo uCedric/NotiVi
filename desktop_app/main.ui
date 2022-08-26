@@ -98,8 +98,8 @@ Left Menu */
 	color: rgb(255, 255, 255);
 }
 #topMenu .QPushButton:disabled {	
-	background-color:rgb(60,44,52);
-	color: rgb(60,44,52);
+	
+	background-color:transparent;
 }
 #bottomMenu .QPushButton {	
 	background-position: left center;
@@ -811,7 +811,7 @@ Button */
                    <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);</string>
                   </property>
                   <property name="text">
-                   <string>Hide</string>
+                   <string>隱藏</string>
                   </property>
                  </widget>
                 </item>
@@ -875,7 +875,7 @@ Button */
                    <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);</string>
                   </property>
                   <property name="text">
-                   <string>Home</string>
+                   <string>首頁</string>
                   </property>
                  </widget>
                 </item>
@@ -913,7 +913,7 @@ Button */
 </string>
                   </property>
                   <property name="text">
-                   <string>set time</string>
+                   <string>設定時段</string>
                   </property>
                  </widget>
                 </item>
@@ -950,7 +950,7 @@ Button */
                    <string notr="true">background-image: url(:/icons/images/icons/cil-devices.png);</string>
                   </property>
                   <property name="text">
-                   <string>New</string>
+                   <string>辨識</string>
                   </property>
                  </widget>
                 </item>
@@ -966,7 +966,7 @@ Button */
                    <string notr="true">background-image: url(:/icons/images/icons/cil-find-in-page.png);</string>
                   </property>
                   <property name="text">
-                   <string>PushButton</string>
+                   <string>防治資訊</string>
                   </property>
                  </widget>
                 </item>
@@ -1000,10 +1000,10 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-save.png)</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-user.png);</string>
                   </property>
                   <property name="text">
-                   <string>run</string>
+                   <string>會員資料</string>
                   </property>
                  </widget>
                 </item>
@@ -1040,7 +1040,7 @@ Button */
                    <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png);</string>
                   </property>
                   <property name="text">
-                   <string>Exit</string>
+                   <string>登出</string>
                   </property>
                  </widget>
                 </item>
@@ -1800,6 +1800,9 @@ background-color: rgb(255, 255, 255);</string>
                   <property name="toolTip">
                    <string>Close</string>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 0, 0);</string>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -1872,7 +1875,8 @@ background-color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QFrame" name="pagesContainer">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(217, 251, 241);</string>
+                   <string notr="true">background-color: rgb(217, 251, 241);
+</string>
                   </property>
                   <property name="frameShape">
                    <enum>QFrame::NoFrame</enum>
@@ -1910,10 +1914,12 @@ QLineEdit {
 }
 QLineEdit:focus{
 	border-color: rgb(255, 255, 0);
-}</string>
+}
+
+</string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>9</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -1973,7 +1979,7 @@ QLineEdit:focus{
                        <property name="geometry">
                         <rect>
                          <x>440</x>
-                         <y>390</y>
+                         <y>410</y>
                          <width>121</width>
                          <height>51</height>
                         </rect>
@@ -2072,6 +2078,44 @@ border-image:none;</string>
                        </property>
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="pushButton_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>400</x>
+                         <y>370</y>
+                         <width>75</width>
+                         <height>23</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border:none;
+font: 12pt &quot;微軟正黑體&quot;;
+color: rgb(10, 186, 181);
+font-weight:bold;</string>
+                       </property>
+                       <property name="text">
+                        <string>忘記密碼</string>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="pushButton_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>530</x>
+                         <y>370</y>
+                         <width>75</width>
+                         <height>23</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border:none;
+font: 12pt &quot;微軟正黑體&quot;;
+color: rgb(10, 186, 181);
+font-weight:bold;</string>
+                       </property>
+                       <property name="text">
+                        <string>註冊</string>
                        </property>
                       </widget>
                      </widget>
@@ -3147,10 +3191,23 @@ QPushButton:pressed{
                            </rect>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">color: rgb(0, 0, 0);
-font: 14pt &quot;微軟正黑體&quot;;
-background-color: rgb(10, 186, 181);
-border-color: rgb(10, 186, 181);</string>
+                           <string notr="true">QPushButton{
+	font-weight:bold;
+	background-color: rgb(10,186,181);
+	font: 14pt &quot;微軟正黑體&quot;;
+	border-color: rgb(10,186,181);
+	border-radius:10px;
+	border-width:3px;
+	color: rgb(0,0,0);
+}
+QPushButton:hover{
+	background-color:rgb(14, 237, 226);
+	border-color: rgb(14, 237, 226);
+}
+QPushButton:pressed{
+	background-color: rgb(14, 237, 226);
+	border-color: rgb(14, 237, 226);
+}</string>
                           </property>
                           <property name="text">
                            <string>選擇本地影片</string>
@@ -3169,18 +3226,17 @@ border-color: rgb(10, 186, 181);</string>
                            <font>
                             <family>微軟正黑體</family>
                             <pointsize>36</pointsize>
-                            <weight>50</weight>
+                            <weight>75</weight>
                             <italic>false</italic>
-                            <bold>false</bold>
+                            <bold>true</bold>
                            </font>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(10, 186, 181);
 border-radius:10px;
-border-width:3px;
 font: 36pt &quot;微軟正黑體&quot;;
-border-color: rgb(255, 255, 255);
+font-weight:bold;
 text-align:center;</string>
                           </property>
                           <property name="text">
@@ -3201,14 +3257,25 @@ text-align:center;</string>
                       <widget class="QPushButton" name="deal">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
-                         <y>150</y>
-                         <width>171</width>
-                         <height>71</height>
+                         <x>240</x>
+                         <y>190</y>
+                         <width>201</width>
+                         <height>81</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(10, 186, 181);</string>
+                        <string notr="true">QPushButton{
+	font-weight:bold;
+	background-color: rgb(10,186,181);
+	font: 14pt &quot;微軟正黑體&quot;;
+	border-color: rgb(0,0,0);
+	border-radius:10px;
+	color: rgb(0,0,0);
+}
+QPushButton:hover{
+	background-color:rgb(14, 237, 226);
+}
+</string>
                        </property>
                        <property name="text">
                         <string>處理原則</string>
@@ -3217,14 +3284,25 @@ text-align:center;</string>
                       <widget class="QPushButton" name="help">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
-                         <y>240</y>
-                         <width>171</width>
-                         <height>71</height>
+                         <x>580</x>
+                         <y>190</y>
+                         <width>201</width>
+                         <height>81</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(10, 186, 181);</string>
+                        <string notr="true">QPushButton{
+	font-weight:bold;
+	background-color: rgb(10,186,181);
+	font: 14pt &quot;微軟正黑體&quot;;
+	border-color: rgb(0,0,0);
+	border-radius:10px;
+	color: rgb(0,0,0);
+}
+QPushButton:hover{
+	background-color:rgb(14, 237, 226);
+}
+</string>
                        </property>
                        <property name="text">
                         <string>求助資源</string>
@@ -3233,14 +3311,25 @@ text-align:center;</string>
                       <widget class="QPushButton" name="compensate">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
+                         <x>240</x>
                          <y>330</y>
-                         <width>171</width>
-                         <height>71</height>
+                         <width>201</width>
+                         <height>81</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(10, 186, 181);</string>
+                        <string notr="true">QPushButton{
+	font-weight:bold;
+	background-color: rgb(10,186,181);
+	font: 14pt &quot;微軟正黑體&quot;;
+	border-color: rgb(0,0,0);
+	border-radius:10px;
+	color: rgb(0,0,0);
+}
+QPushButton:hover{
+	background-color:rgb(14, 237, 226);
+}
+</string>
                        </property>
                        <property name="text">
                         <string>補助資源</string>
@@ -3249,14 +3338,25 @@ text-align:center;</string>
                       <widget class="QPushButton" name="call">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
-                         <y>420</y>
-                         <width>171</width>
-                         <height>71</height>
+                         <x>580</x>
+                         <y>330</y>
+                         <width>201</width>
+                         <height>81</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(10, 186, 181);</string>
+                        <string notr="true">QPushButton{
+	font-weight:bold;
+	background-color: rgb(10,186,181);
+	font: 14pt &quot;微軟正黑體&quot;;
+	border-color: rgb(0,0,0);
+	border-radius:10px;
+	color: rgb(0,0,0);
+}
+QPushButton:hover{
+	background-color:rgb(14, 237, 226);
+}
+</string>
                        </property>
                        <property name="text">
                         <string>宣導資源</string>
@@ -3334,7 +3434,8 @@ font: 12pt &quot;微軟正黑體&quot;;</string>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">border:none;</string>
+                        <string notr="true">border:none;
+background-color: rgb(245, 245, 245);</string>
                        </property>
                        <property name="widgetResizable">
                         <bool>true</bool>
@@ -3347,6 +3448,9 @@ font: 12pt &quot;微軟正黑體&quot;;</string>
                           <width>691</width>
                           <height>511</height>
                          </rect>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">color: rgb(10, 186, 181);</string>
                         </property>
                         <widget class="QTextBrowser" name="TB_deal">
                          <property name="geometry">
@@ -3430,7 +3534,8 @@ QPushButton:hover{
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">border:none;</string>
+                        <string notr="true">background-color: rgb(245, 245, 245);
+border:none;</string>
                        </property>
                        <property name="widgetResizable">
                         <bool>true</bool>
@@ -3474,7 +3579,8 @@ border:none;</string>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">border:none;</string>
+                        <string notr="true">border:none;
+background-color: rgb(245, 245, 245);</string>
                        </property>
                        <property name="widgetResizable">
                         <bool>true</bool>
@@ -3544,7 +3650,8 @@ QPushButton:hover{
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">border:none;</string>
+                        <string notr="true">border:none;
+background-color: rgb(245, 245, 245);</string>
                        </property>
                        <property name="widgetResizable">
                         <bool>true</bool>

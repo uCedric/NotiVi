@@ -92,10 +92,12 @@ class MainWindow(QMainWindow):
         widgets.undo_4.clicked.connect(self.buttonClick)
 
         
-
-        #widgets.btn_settime.setEnabled(False)
-        #widgets.btn_new.setEnabled(False)
-        #widgets.btn_save.setEnabled(False)
+        #BUTTON DISABLED
+        widgets.btn_settime.setEnabled(False)
+        widgets.btn_new.setEnabled(False)
+        widgets.btn_save.setEnabled(False)
+        widgets.btn_inform.setEnabled(False)
+        widgets.btn_exit.setEnabled(False)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -148,6 +150,8 @@ class MainWindow(QMainWindow):
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             else:
                 widgets.stackedWidget.setCurrentWidget(widgets.welcome)
+                UIFunctions.resetStyle(self, btnName)
+                btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW WIDGETS PAGE
         if btnName == "btn_settime":
@@ -164,7 +168,13 @@ class MainWindow(QMainWindow):
         if btnName == "btn_exit":
             widgets.stackedWidget.setCurrentWidget(widgets.home) 
             UIFunctions.resetStyle(self, btnName) 
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
+            print(btn)
+            widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet())) # SELECT MENU
+            widgets.btn_settime.setEnabled(False)
+            widgets.btn_new.setEnabled(False)
+            widgets.btn_save.setEnabled(False)
+            widgets.btn_inform.setEnabled(False)
+            widgets.btn_exit.setEnabled(False)
             isLogin = False
 
         if btnName == "btn_inform":
@@ -278,8 +288,12 @@ class MainWindow(QMainWindow):
             widgets.btn_settime.setEnabled(True)
             widgets.btn_new.setEnabled(True)
             widgets.btn_save.setEnabled(True)
+            widgets.btn_inform.setEnabled(True)
+            widgets.btn_exit.setEnabled(True)
 
             widgets.stackedWidget.setCurrentWidget(widgets.welcome)
+            widgets.email.setText("")
+            widgets.password.setText("")
             isLogin = True
 
 if __name__ == "__main__":

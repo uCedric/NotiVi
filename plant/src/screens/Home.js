@@ -4,7 +4,7 @@ import Icon from '@expo/vector-icons/AntDesign';
 import { setBadgeCountAsync } from 'expo-notifications';
 import axios from 'axios';
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
-
+import init from './firebase'
 
     
 
@@ -278,6 +278,7 @@ export default class Home extends React.Component{
                       //onPress={()=>this.submit()}
                       //onPress={()=>this.getJsonData()}
                      onPress={()=>{
+                        init()
                         this.submit()                       
                         setTimeout(() => this.check_state(),2000);    
                      }}

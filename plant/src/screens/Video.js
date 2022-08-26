@@ -6,12 +6,13 @@ import { Video, AVPlaybackStatus } from 'expo-av';
 import {VideosList} from './firebase'
 import init from './firebase'
 
+
 init();
 export default function App() { //export default class Video extends React.Component {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   //const [url, setUrl] = useState();
-  
+   
   const [selectedValue, setSelectedValue] = useState(VideosList[0].value);
   
   const test = () =>{
@@ -56,14 +57,14 @@ export default function App() { //export default class Video extends React.Compo
         />
       </View>
 
-      {/* <View style={styles.buttons}>
+       <View style={styles.buttons}>
         <Button
           style={{fontSize: 20, color: 'green'}}
           styleDisabled={{color: 'red'}}
           onPress={test}
           title="test"
         />
-      </View> */}
+        </View> 
     </View>
   );
 }

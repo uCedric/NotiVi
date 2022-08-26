@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'; //validate yourself
 import { getStorage, ref, getDownloadURL, listAll, getMetadata } from 'firebase/storage'; //access the storage database
-import  AsyncStorage  from '@react-native-async-storage/async-storage';
+//import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 
 const config={
@@ -37,13 +37,14 @@ const load = () => {
       });
     })
   }
-const geturl = () => {
+
+const geturl = (name) => {
     const storage = getStorage();
-    const listRef = ref(storage,'/videos/user1/2022-07-12 23:18:08/'+itemName);
+    const listRef = ref(storage,'/videos/user1/2022-07-12 23:18:08/'+name);
     getDownloadURL(listRef).then((x) => {
     //AsyncStorage.setItem(itemName,x)
-    UserVideos[itemName]=x
-    //console.log(x)
+    UserVideos[name]=x
+    //console.log(UserVideos)
     }).catch((error) => {
     //console.log(error);
     });
@@ -54,6 +55,7 @@ const test = () =>{
     var count = 0
     Object.entries(UserVideos).forEach(([key, value]) => {
       VideosList[count]={key,value};
+      //console.log(VideosList[count])
       count=count+1;
       //VideosList.push({key,value});
     });

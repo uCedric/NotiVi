@@ -57,14 +57,7 @@ export default function App() { //export default class Video extends React.Compo
         />
       </View>
 
-       <View style={styles.buttons}>
-        <Button
-          style={{fontSize: 20, color: 'green'}}
-          styleDisabled={{color: 'red'}}
-          onPress={test}
-          title="test"
-        />
-        </View> 
+       
     </View>
   );
 }

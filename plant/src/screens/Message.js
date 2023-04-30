@@ -19,7 +19,7 @@ Notification.setNotificationHandler({
   },
 });
    
-  //init();
+  //init();每幾秒去觸發init然後判斷影片數量是否增加來去推播訊息
   export default class Register extends React.Component{
     /*test = () =>{
       console.log(VideosList) 

@@ -279,7 +279,8 @@ export default class Home extends React.Component{
                       //onPress={()=>this.getJsonData()}
                      onPress={()=>{
                         init()
-                        this.submit()                       
+                        //this.submit()
+                        navigate('Message')                       
                         setTimeout(() => this.check_state(),2000);    
                      }}
                      

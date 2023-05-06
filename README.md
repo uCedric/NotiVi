@@ -20,7 +20,7 @@
 ## 系統功能簡介
 
 - 暴力警示功能:利用 AI model 即時監控畫面，偵測到暴力事件過後則第一時間傳送通知至手機端。
-![image](https://github.com/uCedric/NotiVi/blob/master/)
+![image](https://github.com/uCedric/NotiVi/blob/master/photos_readme/1.png)
 
 - 自動蒐證:系統於暴力事件發生時，將其錄製成3秒的影片，儲存至雲端資料庫，使用者可透過手機App查看現場情況，並以此作為相關證據並進行後續處理。
 

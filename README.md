@@ -7,12 +7,12 @@
 
 ## 系統開發工具與技術
 
-1. firebase：資料庫建置
-2. Python：後端語言
-3. React Native：前端語言
-4. flask：伺服器架設
-5. CNN-LSTM 模型
-6. Qt Designer
+- firebase：資料庫建置
+- Python：後端語言
+- React Native：前端語言
+- flask：伺服器架設
+- CNN-LSTM 模型
+- Qt Designer
 
 
 
@@ -20,7 +20,7 @@
 ## 系統功能簡介
 
 - 暴力警示功能:利用 AI model 即時監控畫面，偵測到暴力事件過後則第一時間傳送通知至手機端。
-
+![image](https://github.com/uCedric/NotiVi/blob/master/)
 
 - 自動蒐證:系統於暴力事件發生時，將其錄製成3秒的影片，儲存至雲端資料庫，使用者可透過手機App查看現場情況，並以此作為相關證據並進行後續處理。
 

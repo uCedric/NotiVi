@@ -11,7 +11,7 @@
 - Python：後端語言
 - React Native：前端語言
 - flask：伺服器架設
-- CNN-LSTM 模型
+- CNN-LSTM 模型 (from:https://github.com/mamonraab/Real-Time-Violence-Detection-in-Video-/blob/master/mamonfight22.py)
 - Qt Designer
 
 
